@@ -1,0 +1,520 @@
+% !TEX program = xelatex % (can also use "lualatex") 
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\doublespacing
+\usepackage{soul}
+\usepackage{xcolor}
+\definecolor{mypink}{RGB}{255, 182, 193} % Classic "Pink" color
+\sethlcolor{mypink}
+\usepackage{changepage}
+\usepackage{tikz} 
+\usepackage{fontspec}
+\setmainfont{Georgia}
+\usepackage{svg}
+\usepackage{pgf-pie}
+\usepackage{tfrupee}
+\usepackage{caption}
+\usepackage{chronology}
+\usepackage{chronosys}
+
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage{listings}
+\usepackage{graphicx} 
+\usepackage{fcolumn}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{chronology}
+\usepackage{chronosys}
+\usepackage{indentfirst}
+\usepackage[numbered,framed]{matlab-prettifier}
+\usepackage{tikz}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\setlength{\parindent}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage[round]{natbib} % For round parentheses (Clark, 2014)
+
+\usepackage{hyperref}      % To enable hyperlinks
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,   % Correct key
+  filecolor=magenta,
+  urlcolor=cyan,
+}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\usepackage{tikz} \usetikzlibrary{calc, arrows.meta, intersections, patterns, positioning, shapes.misc, fadings, through,decorations.pathreplacing}
+\definecolor{ColorOne}{named}{MidnightBlue}
+\definecolor{ColorTwo}{named}{Dandelion}
+\definecolor{ColorThree}{named}{Plum}
+\usetikzlibrary{matrix,shapes,arrows,positioning,chains}
+\begin{document}
+
+\title{\textcolor{blue!60!black}{An Unequal Equalization: An Investigation into Why the First Age of Globalization Took Place Through Understanding the Rates of Profit}}
+% \author{Kabeer Bora\footnote{University of Missouri - Kansas City, Email: \href{mailto:kabeerbora@umkc.edu}{kabeerbora@umkc.edu}}}
+\date{\today}
+\maketitle 
+\begin{abstract} 
+The period from 1870 to the outbreak of the First World War is commonly referred to as the First Age of Globalization. This era witnessed an unprecedented expansion in trade, capital flows, and labor migration. This study situates this phase within a Marxian Economics framework, using the rate of profit as a key variable. I investigate whether capital mobility during this period led to a convergence in rates of profit, a necessary condition for unequal exchange. Additionally, I explore the idea that globalization serves as a counteracting force to the falling rate of profit—an essential concept in Marxian analysis. As capital seeks \hl{higher returns} across borders, globalization emerges as both a consequence and a response to declining profitability. Using data from seven countries, I find that the rate of profit increases as trade and capital flows expand. Moreover, the export of capital further raises the rate of profit, as capital relocates to more profitable regions. At the same time, capital mobility contributes to a convergence in rates of profit, as evidenced by a decline in their standard deviation over time. These findings highlight the dual forces of globalization: while it enhances profitability, it also facilitates equalization across regions.
+\end{abstract}    
+\textbf{JEL Classification} - N70, B14, F62 \\
+\textbf{Keywords} - Globalization History, Rate of Profit, Convergence
+\section{Introduction}
+\citet{ORourke2002} invested substantial effort in data collection \& analysis to conclude that the period from 1870 to 1913 was unique in history. During this period, there were distinct features such as factor price, commodity price, and endowment equalization. This finding challenges the widely held belief that the first instance of globalization occurred in 1492 with Christopher Columbus's voyages, or in 1498 when Vasco da Gama successfully bypassed the control of Venetian and Arab traders by navigating a route to India. Even though, there have been many naysayers to this belief (\citet{Frank1998}; \citet{FlynnGiraldez2004}), by and large, most proponents of this belief have presented conclusive evidence to support it (\citet{Estevadeordal2003}; \citet{KlasingMilionis2014}; \citet{JacksMeissnerNovy2011}; \citet{Jacks2005}). There are definitive factors that provide strong evidence of the globalization of the global economy. Some descriptive graphs in Figure A1 show us the share of trade as a proportion of their GDP in the major countries during this phase. The lowest share of its GDP is 0.066 while the maximum is 1.4, median trade openness is 0.36 while the mean is 0.39. Another illustrative graph is available in Figure A2, showcasing almost five centuries of data on the export-to-GDP ratio. It's important to note that we lack annual data before 1820, having data only once every 100 years. Despite this limitation, the graph effectively captures the trend of global trade following the explorations of Columbus and Vasco Da Gama in the 1490s. Two distinctive periods stand out, with the current phase being one and the other, the focal point, spanning from 1870 to 1913.
+
+\par \citet{ORourke2002} specifically examine the phenomenon of factor price convergence. Factor prices are one of significant aspects that modern trade models like Hecksher-Ohlin expound. These theories emphasize that if a substantial volume of goods is being traded, we should expect convergence in prices. Be it the movement of capital or labor, their prices or returns to factors, as neoclassical or classical economics understands it, will equilibrate around the world, or there will be tendencies toward uniformity. But a key aspect of it all could be why there should be a need for trade to begin with. Standard trade theories see it as a win-win situation in its barebones Ricardian model or as win-win for some and lose-lose for others in Heckscher-Ohlin, as the latter is faced by people who own scarce resources, while the gain accrues to people who own the abundant factor. Finally, there are mutual benefits to be had for both consumers and owners of capital. One of the benefits for capitalists is, of course, higher prices and subsequently higher returns to capital or labor. In principal, there is a certain commonality between a mainstream approach and a more Marxian approach as the equalization is an outcome of more trade. However, underneath there is a political economy question in a more Marxian approach while that is totally dismissed in mainstream economics. The viability of capitalism is strongly reliant on the rate of profit being high enough for capital accumulation, which is the primary driver of capitalism. The question then arises how do we come to a situation where globalization becomes a necessity. \citet{JellissenGottheil2009} claim that Marx was perhaps the first social scientist to see the need for globalization. This argument was made with the understanding that the decline in the rate of profit was the triggering mechanism for it (\citet{moseley1997rate}; \citet{moseley2009us}). It is therefore pertinent to ask whether we observe an uptick in the rates of profit during the period of the First Age of Globalization, from 1870 to 1913.
+
+% If we are to understand capital through the various phases it has gone through, as mentioned by \citet{Mandel1962}, one must comprehend capital in a Marxian sense, as the dead labor trapped. The rise of surplus value essentializes its transfer as well, as the surplus value goes to the clique that can command power in a society. The beginning of the creation of surplus value was with the advent of better production techniques, enabling the acquisition of surplus value. The political question here remains: how does this value need to be distributed? The rate of profit serves as an indicator that can provide insights into the level of influence held by a particular class within society. In this essay, it is unnecessary for me to explicitly support this viewpoint. Instead, I intend to recognize that this era was, indeed, a period of globalization and to inquire, from a Marxian perspective, about the factors that necessitated the transition to a more global order. 
+
+\par The purpose of this paper, which focuses on this period, is to examine the first period of globalization and, from a Marxian standpoint, to understand how profit rates responded to this new phenomenon. An understanding of the rates of profit also provides insights into technological progress and the efficiency of production, particularly through its connection to the capital-output ratio (\citet{weisskopf1979marxian}, \citet{basu2013technology}, \citet{kaldor1956alternative}). In addition to this analysis, another contribution of this paper is the focus on the equalization of profit rates, an important aspect of analyzing profit rates, as mentioned earlier. In Marxian economics, the equalization of profit rates holds a much more central position than in mainstream economics, as it explains how surplus value produced in one sector is transferred to another. In this paper, we introduce the concept of inter-country transfer. Consequently, the equalization of profit rates is a necessary condition for the transfer of surplus value between countries, or in other words, for unequal exchange to occur (\citet{carchedi2021economics}; \citet{Ricci2019}; \citet{emmanuel1972unequal}).
+\par In the wider body of Marxist research focused on the rate of profit, we encounter diverse analyses. Some of these investigations have taken an exploratory approach, as seen in the works of \citet{Wolff1979}, \citet{Shaikh1992}, and \citet{Moseley1991}. Meanwhile, certain studies have subjected the rate of profit to rigorous econometric methods, such as the research conducted by \citet{BasuManolakos2013} and \citet{Alexiou2022}. In my paper, I aim to contribute to the existing body of empirical analysis of Marxian tendencies. Previous studies have primarily focused on more recent periods, leaving a significant gap in our understanding of historical time periods for seven countries (Germany, United Kingdom, United States of America, Sweden, France, Netherlands \& Spain). Therefore, my research represents another endeavor to provide an empirical examination of this crucial historical context. My paper does not only fulfill that but at the same time, it makes two added contributions. Firstly, as I mentioned before, I provide important empirical evidence to support the discussion on the equalization of profit rates among different countries—an important assumption in models that examine international exchange from a Marxian perspective. In addition to this, I compute profit rates from an era that is not extensively discussed in contemporary Marxian literature. Secondly, I explore the role of foreign trade as a counteracting force within the global economy. To the best of my knowledge, an empirical exposition of the latter is lacking. However, the former has drawn some attention from scholars (\citet{ChouIzyumovVahaly2015}; \citet{Carter2004}; \citet{Glyn2004}). 
+% It is also worth mentioning that neoclassical economics would prescribe an equalization of profit rates under perfect competition. For Marxist scholars, grasping the concept of profit rate equalization becomes essential because it involves distinct dynamics compared to those embraced by neoclassical economists. Profit rate equalization signifies the movement of surplus value from a nation with a higher organic composition of capital to one with a lower organic composition of capital and it is a tendency towards equalization rather than arriving at point estimate of profits as neoclassical economics would have us believe. Another significant aspect that adds importance to an understanding of equalization of profit rates is that when we seek to understand unequal exchange (\citet{Grossmann1929}; \citet{Carchedi1989}; \citet{Ricci2019}), we must also consider the classical assumption of equalization of profit rates. Only with this assumption in place, can unequal exchange even take place. 
+\par For this period, there has been debate surrounding the role of tariffs on economic growth as well (\citet{bairoch1989european}; \citet{orourke2000globalization}; \citet{ClemensWilliamson2004}, \citet{Jacks2005}; \citet{schularick2011tariffs}). I test this hypothesis mainly through the effect of tariffs on rates of profit. The mechanism on why tariffs should effect output is simple. As profitability affects the rate of accumulation, this accumulation should translate into an increase in the scale of production, which is something I also test. Due to its effect on capital accumulation, output increases due to an increase in the rate of profit. However, the data does not permit us to test whether such openness also led to increasing technical change. Therefore, we cannot conclusively determine whether it merely increased the capital stock or if it also translated into technical change. However, the rate of profit can be decomposed into the capital-output ratio to determine whether technical progress has taken place. Although a capital-to-labor ratio could provide insights, in many cases, the cost of capital could fluctuate, potentially leading to an overestimation of technical change. Hence, we refrain from making such conclusions.  
+
+\par My findings show that the rise in global trade positively influenced profitability, which validates certain Marxist scholars (\citet{JellissenGottheil2009}; \citet{Moseley1991}; \citet{Mandel1962}). The second strand of my findings show that capital moves where it can achieve higher rates on itself, which means capital mobility becomes a pre-requisite. My results show that the profit rates across the countries were converging during this time hinting at increased capital mobility. To test profit rate convergence, I employ various econometric methods. The inevitability of globalization, as claimed by Marx, cannot be supported using the available data, as this would require a different econometric design, one that could only be feasible with more data—unfortunately, data for the time period under study is not available. However, this paper examines the changes in rates of profit during the first age of globalization and tests certain other macroeconomic indicators, such as capital accumulation. In addition to these findings, I also test the effect of other variants of trade openness, mainly the components of trade openness: exports and imports, along with terms of trade. I find interesting results here, as I only find significance with exports and not imports. Additionally, I observe that an increase in the relative price of imports in terms of exports (1/terms of trade) has a negative effect on the rate of profit. These findings merely highlight the importance of exporting to other countries rather than importing cheaper goods.
+% Additionally, I utilize a GMM system estimator to address potential endogeneity in my regressors when assessing the impact of globalization.
+\par The article is structured into five parts. After the initial introduction, Section 2 focuses on the theoretical discussions concerning globalization and the declining profit rate. Section 3 explores the methodological concepts used in our analysis, as well as the empirical approach. Section 4 presents the findings, and finally, Section 5 concludes.
+
+\section{Globalization and Falling Rate of Profit}
+Briefly, the rate of profit is given by $\frac{s}{(c+v)}$, where $s$ is the surplus value, $c$ is constant capital, and $v$ is variable capital. When there is technical change that uses more capital rather than saving on labor, we end up with a situation where the extraction of surplus value decreases as labor usage reduces, while the denominator $c$ increases. As a result, the rate of profit should decline over time. This was Marx's original law of the falling rate of profit. Of course, this is rather simplistic, and there are many obvious issues with this law, which have spawned a fierce debate surrounding the issue (\citet{dobb1939political}, \citet{sweezy1942theory}, \citet{okishio1961technical}, \citet{mage1963law}, \citet{foley1986understanding}). The decline in the rate of profit is primarily a result of the inherent characteristics of capitalist growth. Marx viewed capitalism as an ongoing struggle between labor rights and the desires of capital owners. When workers succeed in this economic class conflict, capital becomes more motivated to employ alternative speculative measures to raise the rate of profit. It is not a surprise then that the falling rate of profit is perhaps the most empirically tested law in Marxian quantitative analyses (see \citet{FeldsteinSummersWachter1977}; \citet{Wolff1979}; \citet{Moseley1991}; \citet{Shaikh1992}; \citet{BasuManolakos2013}). 
+\par An exploratory or visual inspection of the rate of profit across different countries would require a long period to draw meaningful conclusions about whether the rate of profit is declining. This stands in contrast to the approach in \citet{rotta2024was}, where any random time period could be selected to fit a narrative. Such an analysis is feasible only for a limited sample of countries when examining data spanning more than a century, as demonstrated by \citet{li2007long} and \citet{maito2016distribucion}. While the sources of their data can be debated, this paper does not focus on such methodological concerns. Instead, the primary aim here is to present a Marxian analysis of the factors that influence the rate of profit. For this purpose, it is unnecessary to rely on extended time series data. Instead, a more specific time period can be selected to examine the correlates or causal variables affecting the rate of profit during that interval. This approach enables the identification of events or phenomena that shift the balance of power between labor and capital—a hallmark of Marxian analysis, which places conflicts between classes at its core. Among the factors counteracting the tendency of the rate of profit to fall, Marx himself outlines six key countertendencies: increasing the intensity of exploitation, deviations of real wages from the value of labor power, relative overpopulation, changes in the relative price of capital, foreign trade, and the rise in share capital. However, these abstractions primarily operate at a theoretical level, and a deeper understanding requires anchoring them in concrete events or phenomena. After all, the social science of economics must aim to contextualize such theoretical constructs rather than remain confined to an excessively abstract realm. In practice, shifts in the class struggle may be driven by changes in legislation, political coups, or other significant historical events. Consequently, it is logical to situate this study within a specific time period to better understand the dynamics influencing the rate of profit, rather than relying solely on visual inspection. Foreign trade, as one of Marx’s countertendencies, is further disaggregated here into components such as exports, imports, tariffs, terms of trade, and related variables. 
+\par \citet{JellissenGottheil2009} claim that Marx could have been the very first social scientist to have talked about the inevitability of globalization. They claim that the reason for such an inevitability is due to the falling rate of profit. In their words, \textit{the trigger mechanism that guarantees globalization is Marx's law of the falling tendency of the rate of profit.} The reason why more globalization could be seen as a response to a falling rate of profit is aptly described by \citet{mandel1962marxist}. 
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[node distance=2cm, >=Stealth, thick]
+
+    % Usurers' Capital
+    \node (usurer) [draw, rectangle, align=center] {Usurer's Capital};
+    
+    % Voyages for Luxury Goods
+    \node (cc) [draw, rectangle, align=center, below of=usurer] {Commercial Capital};
+    
+    % Emergence of Traders
+    \node (ic) [draw, rectangle, align=center, below of=cc] {Manufacturing Capital};
+        
+    % Arrows with labels
+    \draw[->] (usurer) -- (cc) node[midway, right, align=center] {Emergence of\\ Merchants};
+    \draw[->] (cc) -- (ic) node[midway, right, align=center] {Labor as a commodity};
+
+  \end{tikzpicture}
+  \caption{Mandel's inevitability of globalization}
+  \label{fig:timeline}
+\end{figure}
+
+\par \citet{mandel1962marxist}'s theorization of the phases of capital is very logical as it highlights the division of the surplus from a local scale to a more global scale. Therein lies the understanding of globalization through a Marxian prism. An usurer's capital was the very first form of capital recorded. During the inadequacy of a harvest of small peasant, the peasant will loan wheat from the more well off peasants. This wheat will be repaid with something extra added to the it. With the beginning of foreign trade in luxury items, we see the rise of what can be termed as merchant capital. Mandel believes that raids into foreign territory, operations of brigandage and piracy, that the first merchant navigators assembled their little starting capital. Though high rates of surplus value\footnote{Although the term 'value' is extensively discussed in Marxian political economy, this paper does not aim to engage in that discussion and instead focuses on surplus value as understood in capitalism, since value can only be produced under capitalism. This concept is applied to other modes of production here} in such trades attract a host of other traders, thereby lowering the rate of profit. The commercial revolution throughout Europe, marked by the plundering of mines, gained momentum, leading to a Europe where the bourgeoisie liberated themselves from the clutches of the State. We witness the emergence of labor being commodified and treated like any other commodity. However, the drive to accumulate capital also extended to territories unaffected by the influence of industrial capitalism, namely the colonies. This is a qualitative historical account of how the inevitability of globalization can be viewed \& a demonstration of the process can be seen in Figure 1. As much as it may seem that Marx foresaw a more globalized world, the reasons for why it was inevitable could vary. \citet{ramirez2012falling} discusses the potential reasons for the need to globalize, which may not necessarily be due to aforementioned inevitability. The falling rate of profit may be preceded by a lack of effective demand at home. This could be a potential research agenda going forward, and this is most certainly an empirical investigation.This is a matter of determining the sequence of events, and it could involve very small differences in the time period before such a change can occur. In any case, it may not matter whether the rate of profit is influenced by either an increasing organic composition of capital or a lack of effective demand. If goods are not being sold at their intended value, it will result in a decrease in the potential profits from producing those goods.
+\par Simply put, if we focus on the cost of production aspect itself, we can see that cheaper imports generally reduce production costs. This should not only lower the cost of maintaining a workforce as consumer goods become cheaper, but also reduce the cost of raw materials for producing capital goods, thereby increasing the rate of profit as both variable and constant capital become cheaper.
+To quote Marx, 
+\begin{quote}
+    foreign trade partly cheapens the elements of constant capital, and partly the necessities of life for which the variable capital is exchanged, [thus] it tends to raise the rate of profit by increasing the rate of surplus-value and lowering the value of constant capital. It generally acts in this direction by permitting an expansion of the scale of production - Marx, Vol.III, p.237
+\end{quote} 
+\par At the same time, if we focus solely on the goods produced, we can observe that commercial capital, or unsold inventory, needs to be sold in order for the capitalist to realize profits. If the goods remain unsold, profits may not be reflected, and the inventory becomes a sunk cost that has not fructified into profits. As a result, the rate of profit could decline. This raises the question of whether imports or exports have an effect on the rate of profit. This, in turn, would indirectly inform us whether the external market or the cheapening of costs is the driving factor.
+  
+\par Lest we forget, the period in focus is largely characterized by imperialism where raw materials were cheaper (\citet{hobson1902scientific}; \citet{brewer2002marxist}), and there was, in general, a drain of wealth from the global south to the global north. However, at this stage, it is not possible for me to identify the destinations and sources of the exports and imports, respectively. If this were possible, we could potentially separate the effects of colonial trade on the rate of profit. Furthermore, what distinguishes an export to or import from a colonial country from doing the same with other countries? The literature on the drain of resources has primarily focused on countries like India, where export surpluses, for example, are seen as a drain on resources (\citet{naoroji1901poverty}, \citep{dutt1902economic}, \citet{patnaik2000new}, \citet{cuenca2007india}, \citet{nogues2021measuring}). Alternatively, \citet{Tadei2020} has demonstrated for African countries that trade had price gaps between colonizing countries (such as France) and non-colonizing ones, revealing discriminatory pricing practices. That being said, we do not have the precise data to make such claims for the countries selected for our project.
+\par \citet{engels1844outlines} had recognized the root cause of the tendency of capitalists towards over-production, which stemmed from the constant competition among capitalists. This competition compelled capitalists to ramp up production without considering the market's limits. \citet{marx1996kapital} differed slightly, he believed it was inherent in a capitalist to exercise control over labor, or labor time. Consequentially, utilizing capital to produce output is more favorable than owning labor time, that is more likely defiant than capital. Overproduction lowers prices, but it also drives the smaller producers out of the market. Because of the overaccumulation of capital, which Marx believed was the prevailing condition in England, surplus capital sought an outlet in other European countries and colonies or capital used to export goods to other countries or make the means of subsistence cheaper for the domestic populace just so the country does not run into a realization crisis. In classical Marxist theory, as discussed by \citet{hilferding1981finance}, \citet{lenin1999imperialism}, and \citet{bukharin1929imperialism}, capital is exported in pursuit of higher profit rates, with such disparities leading to opportunities for global arbitrage. One of the key drivers for capitalists to export capital is the existence of international wage differentials, given a certain degree of labor productivity, which enables them to capture greater surplus value (\citet{smith2016imperialism}, \citet{suwandi2019value}).
+
+\par As mentioned above, another important aspect is the capital exported abroad as foreign direct investment. However, we lack ample data for that period to have enough variation along both dimensions to test anything robustly. Still, some tests are conducted to examine the effect of foreign gross assets on both the rate of accumulation and the rate of profit. Along similar lines of imperialism and capital export, \citet{hauner2017inequality} attempt to endogenize the advent of the First World War using capital exports around the world, which were rooted in the inequality brewing domestically and the increase in military presence. The reason why capital export was important is that underutilized capital could be employed in other countries, as any more domestic investment would lead to an overproduction crisis. Hence, surplus capital was shipped abroad. We can consider how this could affect the rate of profit, as idle capital is put to use in more productive avenues, where labor could be utilized in combination to produce more surplus value. Of course, certain conditions must hold for this to result in a higher rate of profit, but usually, if any of the goods produced are realized in other countries, the surplus value produced is at least realized as profits.
+\par Although this is not the primary focus of this part of the essay, it is worth noting that the capital export phenomenon during this time also contributes to another focus of our essay: the equalization of rates of profit. Figure A4 shows the gross foreign assets for a handful of countries, and we observe that certain countries, such as the United Kingdom, France, and Germany, saw an increase in their capital being shipped abroad.
+\par Foreign trade not only acts as a counteracting force against the decline in the rate of profit but also promotes equalization of profit rates among different countries. As stated earlier, the purpose of this article is twofold: firstly, to argue that the increasing need for globalization has positively impacted profitability; and secondly, to demonstrate that globalization can unleash forces that promote equal profitability across countries. The empirical analysis presented in this article addresses these aspects using previously untested data. How this analysis differs from other studies with respect to equalization of profitability is that most of the studies on equalization have certainly focused on intra-country equalization across sectors. However, for the purpose of this essay, the focus shifts from a sectoral analysis to inter-country equalization. As highlighted by \citet{ChouIzyumovVahaly2015}, there is a distinction between the neoclassical emphasis on equalization and the perspective offered by Marxist scholars. According to the neoclassical approach, equalizing profitability is seen as a component of equilibrium within the framework of perfect competition. However, in the Marxian literature, it is regarded more as a tendency rather than an absolute outcome. This study aims to fill the existing research gap by examining this tendency within a specific historical period marked by the increasing movement of capital and goods. There is a noticeable absence of a comprehensive econometric analysis regarding this tendency. Instead, there seems to be a reliance on more subjective methods such as visual inspection to observe this convergence. Several studies have examined the level of profits and capital returns across different economies (\citet{bigsten2000rates}; \citet{udry2006return}), revealing that capital-scarce developing economies tend to have higher capital returns, as expected. Disparities in profit rates were also identified within economic groups \citep{harberger1978distributional}. However, the overall body of literature has not established clear evidence of pronounced convergence of returns to capital or a systematic pattern of increasing or decreasing profit rates in capital-scarce or capital-abundant economies. For instance, \citet{Glyn2004} investigated manufacturing profitability in 15 industrialized economies during the 1970-90s, observing little change in cross-country variability and dispersion in profit during the 1980s and an increase in the 1990s, which contradicts predictions from the FPE (Factor Price Equalization) theory. On the contrary, \citet{ChouIzyumovVahaly2015} confirmed the presence of convergence globally during the period of 1995-2007, with the most significant convergence observed in developing and transitional economies, primarily attributed to convergence in output-capital ratios driven by the dissemination of technology through the globalization process. \citet{Carter2004} found convergence in profit rates among a set of developed economies during the 1963-1996 period but noted a significant slowdown in convergence and greater instability in rates after the dismantling of the Keynesian paradigm of economic governance, characterized by a generous welfare state, capital-labor accord, and extensive regulation of the economy. \citet{rigby1991technical} conducted a study specifically focusing on manufacturing profit rate convergence across regions of the Canadian economy at the sectoral level during the 1961-1984 period. The time series analysis indicated limited convergence, pointing to the existence of spatial barriers to convergence even within a single economy.
+
+
+% \par Profit rate differentials prompt capitalists to globalize its capital. The process of capital globalization entails the movement of capital into countries that offer a higher profit rate, or, in Marxist terms, where labor can be more extensively exploited. 
+
+
+% Here it is also pertinent to quote Marx, \textit{‘the conditions of direct exploitation, and those of those of realizing it, are not identical. They diverge not only in place and time, but also logically ... the first are only limited by the productive power of society, the latter by the proportional relation of the various branches of production and the consumer power of society}. 
+
+
+% \par To conclude this section, I must also invoke the literature from Post Keynesian scholars, as there has been significant focus on profit shares and globalization, with many empirical investigations (\citet{Stockhammer2017}, \citet{stockhammer2010globalization}, \citet{onaran2009wage}). Profit share may not involve the same dynamics as the rate of profit. Notably, when demand is sufficient, the level of capacity utilization rises, satisfying the needs of both workers and capitalists. Even if the profit margin and the share of profit in output are relatively low, and the wage rate is comparatively high, a high rate of profit can still be attained as long as demand remains strong. This concept is extensively explored in the seminal paper by \citet{BhaduriMarglin1990}, which delves into the intricacies of this phenomenon. Consequently, an analysis based on the post-Keynesian theory would yield different insights compared to a Marxist perspective. Increasing wages could, in theory, reduce the profit per unit of output, but businesses may offset this impact by scaling up production and achieving higher sales volumes. If investment demand aligns with the rate of capacity utilization, there will be an additional boost to aggregate demand, resulting in higher aggregate profits and an increased profit rate, despite the decline in the profit share. According to this perspective, there exists no inherent trade-off between economic growth and income distribution. Emphasizing high wage policies not only fosters income equality but also enhances overall output and economic expansion. In essence, the levels of profit share and profit rates can vary significantly depending on the prevailing conditions and economic circumstances. 
+
+% Moreover, it would be a grave injustice to not mention the level of imperialism existing during this time. {New Imperialism} primarily referred to the period spanning from 1870 to 1913, and it was extensively examined by John Hobson in his influential research. Hobson established a connection between the desire for territorial expansion and the growing social and economic disparities within a country. The significance of this lies in the context of our sample countries, which comprises nations that participated in the Scramble for Africa, such as Britain, France, Spain, and Germany.
+
+
+
+\section{Empirical Strategy}
+\subsection{Baseline Specifications}
+\hl{Since we have a panel of 7 countries and approximately 44 time periods, a fixed effects model is employed, incorporating both country and year fixed effects to control for time-invariant heterogeneity and common temporal shocks. A lagged dependent variable is included as a regressor, which may introduce a dynamic panel bias (Nickell bias). However, given the lengthy time dimension ($T = 44$), this bias is anticipated to be negligible. The regression model is specified as follows:}
+\begin{equation*}
+\texttt{Rate of Profit}{it} = \alpha \cdot \texttt{Rate of Profit}{i,t-1} + \sum_{j=1}^{p} \delta {j} \texttt{X}{i,t-j} + \mu_{i} + \lambda_t + \epsilon_{it}
+\end{equation*}
+\hl{where $i$ and $t$ index countries and years, respectively, $\mu_i$ represents country fixed effects, $\lambda_t$ represents year fixed effects, $\texttt{X}_{i,t-j}$ is a vector of $p$ lagged control variables. The Nickell bias for the coefficient $\hat{\alpha}$ is approximately} 
+\begin{equation*}
+\operatorname{Bias}(\hat{\alpha}) \approx -\frac{1 + \alpha}{T - 1}
+\end{equation*}
+\hl{where $\alpha$ is the true value of the coefficient and $T$ is the number of time periods. With $T = 44$, the bias is on the order of $-\frac{1 + \alpha}{43}$, which is economically insignificant. Standard errors are clustered at the country level to account for serial correlation and heteroskedasticity.}
+
+\texttt{X} is a vector of explanatory variables. As we focus on globalization here, I am explaining it using the trade openness of the sample of countries. This is the ratio - $\frac{\texttt{Exports + Imports}}{\texttt{GDP}}$. I have explored other potential measures, but due to certain data constraints, this is the most optimal option I could produce. Regarding our vector \texttt{X}, it includes factors such as the newly infused capital into the economy and a measure of the capital-labor ratio. It is anticipated that both these factors would exert a negative influence on the rate of profit. As the organic composition of capital rises, the amount of surplus value that can be obtained diminishes, leading to a decline in the rate of profit. There is an issue that requires attention, and that pertains to the variations in the units used for our capital-to-labor ratio and real wage measurements. The capital-to-labor ratio is calculated as the ratio of the total fixed capital stock to the total labor hours supplied in a year. However, the measure of the total fixed capital stock is expressed in different currency units across countries. To ensure comparability across countries, I normalize the capital-to-labor ratio of 1870 to a value of 100. Secondly, in order to construct the exploitation index, I utilize the output per labor hour, which remains comparable since the output data is sourced from \citet{Maddison2010}). However, true exploitation accounts for real wages as well. Considering that constant capital (c) + variable capital (v) + surplus value (s) represents the total value produced, and the rate of surplus value is $\frac{s}{v}$, the rate of exploitation is given by $\frac{s}{s+v}$. To make this into a rate exploitation, it has to be a ratio relative to wages, I use the deviation of the total output produced per hour from the real wages paid per hour. This ratio serves as a measure of 'exploitation'. Both output and wages are indexed to 100 for the year 1870, ensuring comparability across time. Although there are some limitations to this approach, it's best to leave the task of converting the measurements into accurate values to an expert in data measurement. \par However, the precision of these measurements may not be crucial for our purposes, as we are primarily concerned with understanding the variability of the variable rather than its exact magnitude. We still employ the method utilized in \citet{BasuManolakos2013} wages and the rate of exploitation. This involves the application of the Hodrick-Prescott filter, with the deviation from the long-run trend considered as an indicator of the disparity in both real wages and the rate of exploitation. To emphasize once more, this is the first instance where we are examining the impact of various factors on the rate of profit for a period that has not been previously analyzed. One of the variables is the inclusion of the Panic of 1873. The origins of the Panic of 1873 can be traced back to New York's railroad financiers, primarily impacting private banks and brokerage houses in its initial phase \citep{Wicker2006}. The growth of industrial production experienced a significant decline during the period 1874-78, with a contraction of nearly -6\% in 1875 \citep{Hilt2018}. 
+\subsection{Convergence Estimation}
+\par To test the equalization of rates of profit, various approaches have been explored. However, the studies mentioned (\citet{ChouIzyumovVahaly2015}; \citet{Carter2004}; \citet{Glyn2004}) did not employ the conventional econometric convergence tests that have emerged over the years (\citet{BarroSalaIMartin1997}; \citet{LuginbuhlKoopman2004}; \citet{PhillipsSul2007}). For instance, \citet{ChouIzyumovVahaly2015} employ a decomposition analysis to demonstrate convergence. However, in our case, employing an econometric approach not only provides more insightful results but also offers greater reliability. This is particularly crucial given that historical data may not be as precise as contemporary data. In contrast, \citet{Glyn2004} examines the averages of the standard deviations across two distinct ten-year intervals. \citet{rigby1991technical} employs time series analysis to examine convergence among manufacturing industries and regions in Canada. However, the method used is somewhat dated. It primarily involves computing four deviation series. This entails taking averages of time series data and then subtracting the rate of profit for each industry from the average to determine an autoregression coefficient. For convergence to be indicated, this coefficient should fall between -1 and 1. The analysis reveals a decrease in the standard deviation when transitioning from the 70s to the 80s. So my analysis here is more revelatory \& accurate for the simple reason that we use more advanced tools to explore this. Additionally, this essay's distinctive contribution, as consistently emphasized, lies in the utilization of historical data not previously employed to identify Marxian trends. 
+\par \citet{BarroSalaIMartin1997} were the first proponents of such an exercise in economics, where they tested the convergence of GDP per capita across countries. My method is an extension of their approach, a brief overview of which is provided in Section 7.1. We test for Beta convergence, which, in a way, measures the speed of convergence. It tells us how quickly rates of profit converge when there is a significant disparity between countries. Second, we examine the standard Sigma convergence, which measures the standard deviation of rates of profit across different countries for each year during this period. The latter is perhaps a more conventional method, but the former provides new insights into how rapidly rates of profit converge to uniformity or how quickly capitalists exploit the magnitude of arbitrage opportunities available to them. Another important aspect to consider is the relationship between increasing net foreign assets, military presence, and gaps between rates of profit. As \citet{hauner2017inequality} demonstrate, the rise in net foreign assets, coupled with an expanding foreign military presence, played a significant role in the lead-up to the First World War. While this is not the primary focus of our paper, the widening gap in rates of profit across countries could similarly signal an increase in military presence. This is because regions or colonies with higher returns on capital—albeit riskier—present lucrative opportunities for investment. The potential for higher profits may incentivize greater military involvement to secure and protect these investments, particularly in unstable or contested regions. Thus, the divergence in rates of profit could reflect not only economic dynamics but also geopolitical strategies aimed at maximizing returns on capital.
+\subsection{Instrument Variable Strategy}
+It is quite 
+\section{Results}
+In our analysis using the CIPS test, we observe that none of the variables exhibit stationarity. This result is not entirely unexpected, as except for the exploitation index, all other variables show non-stationary behavior. The literature has already established the issue of the rate of profit being dependent on its lagged values (\citet{Alexiou2022}; \citet{BasuManolakos2013}). Given the non-stationarity of the rate of profit, it becomes even more crucial to address this concern by including lagged dependent variables in our model. Considering this evidence, the specifications used in the analysis are indeed appropriate.
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{3cm}||p{3cm}|p{3cm}|p{2cm}|}
+ \hline
+ \multicolumn{4}{|c|}{Unit Root Tests} \\
+ \hline
+ Variable & IPS Test Statistic & CIPS Test Statistic & Order \\
+ \hline
+ Rate of Profit &  -1.1496 & -0.5337 & 1 \\
+ Capital to Labor &  8.1776 &  6.5389 & 1 \\
+ Openness & -1.2204 & -1.0047 & 1 \\
+ Exploitation &  -0.9919 & -4.0700 & 0 \\ 
+ \hline
+\end{tabular} \\
+\begin{minipage}[t]{\textwidth}
+\small
+\textit{Note:} The table presents the results of unit root tests for four variables: Rate of Profit, Capital to Labor, Openness, and Exploitation. The tests employed are the Im-Pesaran-Shin (IPS) and Cross-sectional Im-Pesaran-Shin (CIPS) tests. The statistics for each variable are provided along with their respective order of integration. Specifically, the variables "Rate of Profit," "Capital to Labor," and "Openness" are found to be stationary at the first difference (i.e., they are integrated of order 1), while "Exploitation" is stationary at level (i.e., integrated of order 0). The significance levels are denoted by *** (1\%) and ** (5\%), indicating the level of statistical significance for the tests.
+\end{minipage}
+
+\end{center}
+\caption{Results of the Unit Root tests performed on our variables}
+\end{table}  
+
+
+\par Upon examining the results of the fixed effects model conducted in this study, it becomes clear that trade openness has a positive effect on the rate of profit. This indicates that globalization, as we comprehend it, has had an impact on the rate of profit. This finding aligns with more recent research on profit shares and globalization, which also suggests a similar effect in relation to profit share \citep{Stockhammer2017}. Columns (1), (2), and (4) exhibit statistical significance at least at the 5\% level. The effect of openness on the rate of profit is both statistically and economically significant. A 1\% increase in openness is associated with a 0.03 to 0.04 percentage point increase in the rate of profit. This finding supports the central hypothesis of the study: that the first age of globalization constituted an important period in counteracting the tendency of the rate of profit to fall.
+\par The focus here is on the unexpected performance of our capital-to-labor index. While an increase in the organic composition of capital typically affects the profit rate, there may be additional factors at play. A higher capital-to-labor ratio might indicate very efficient capital utilization, which could counterbalance any potential profit increase. Furthermore, during this period, as capitalism was taking root in many countries, an increasing capital-to-labor ratio could positively impact profits due to potential economies of scale. By injecting more capital into the economy, the average cost per unit decreases, potentially resulting in higher profits. There could be multiple reasons why we aren't observing a direct positive effect of an increasing capital-to-labor ratio on profits, which warrants further research. Additionally, an increasing organic composition of capital could also mean that a worker is more productive. Productivity by definition should decrease the value of a commodity as the direct labor content decreases but it also means that the relative surplus value channel is now available, thereby reducing the total wages for sustenance. However, it's important to note that this paper's main analysis doesn't revolve around this particular issue. That being said, column (2) of Table 2 reveals a statistically significant and negative effect of our capital-to-labor index. Specifically, a one-unit increase in the capital-to-labor index is associated with a 0.007 percentage point decrease in the rate of profit. As far as exploitation is concerned, we see that it has a positive effect on profitability, which is as expected. Another challenge is the unavailability of unemployment rates for this period, making it doubly hard for me to control an essential factor that could contribute to the rate of profit. 
+%  However, one crucial point here is that a negative deviation of real wages from its long-term trend may not accurately represent the significant changes in economic structure experienced by countries. This is because labor costs could be offset by higher unemployment, resulting from increased labor productivity. Simultaneously, not only are goods becoming cheaper, but unemployment also exerts downward pressure on wages. These factors should theoretically increase profits, given the decline in wages. However, it's important to note that when discussing the rate of profit, the emphasis is primarily on realized profit, not necessarily the generation of surplus value. Drawing terms from the mainstream literature, the focus is mainly on the demand side rather than the supply side. The realization of profits involves selling goods to the very workers they employ. Therefore, there are conflicting forces influencing the deviation of real wages from its long-term trend. \par Looking at Table 2, which presents the outcomes obtained through Arellano-Bond Estimation, is motivated by the potential presence of endogeneity and the enhanced resilience to serial correlation that this method offers. In any case, our findings indicate that a 1\% increase in the \textit{trade openness} variable results in an almost 0.0004 percentage points rise in the \textit{rate of profit}. Importantly, trade openness remains a significant variable in all our regression specifications. Additionally, the \textit{Panic} variable is statistically significance. The time intervals from 1873 to 1875 led to a decline in the rate of profit, aligning with our hypothesis of a potential contagion effect. One thing for concern of course is that our measure of exploitation does not do well in all the specifications. But it is important to understand here that even though they are not statistically significant, the fluctuations of the GDP per labor hour from its long trend can be deemed to be a measure of exploitation but as mentioned before the rate of exploitation ought to be a ratio of an output measure to the wage received (variable capital). So why do we not see a positive association, it should not be much of a concern as this was not our primary focus, but reasons could vary. One of the main reasons could be that it is offset by a decrease in wages, for example an increase in $v$ could also mean that be coupled with an increase in $s$. 
+\begin{table}[!htbp] 
+\centering 
+  \caption{Fixed Effects Model Results} 
+  \label{table:fe_model_results} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+\multicolumn{5}{c} {\hspace{4.5cm}\textbf{Dependent variable: Rate of Profit$_{t}$}} \\
+ & (1) & (2) & (3) & (4) \\ 
+\hline \\[-1.8ex] 
+ Rate of Profit_{t-1} & 0.786$^{***}$ & 0.720$^{***}$ & 0.742$^{***}$ & 0.776$^{***}$ \\ 
+  & (0.0334) & (0.0366) & (0.0365) & (0.0355) \\ 
+ Openness & 0.03196$^{*}$ & 0.0288 & 0.03307$^{*}$ & 0.04516$^{**}$ \\ 
+  & (0.01737) & (0.0168) & (0.0164) & (0.0167) \\ 
+ Capital to Labor & -0.00364 & -0.00784$^{**}$ & -0.00476 & 0.00127 \\ 
+  & (0.00258) & (0.00273) & (0.00397) & (0.00344) \\ 
+  Deviation from Productivity & 0.00142 & - & & 0.1117$^{***}$ \\ 
+  & (0.03131) & - & & (0.0315) \\ 
+  Exploitation & - & 0.04587$^{***}$ & 0.05385$^{***}$ & - \\ 
+  & - & (0.01198) & (0.01455) & - \\ 
+ Constant & 0.0423 & 0.0423 & 0.0427 & 0.0427 \\ 
+  & (0.0329) & (0.0329) & (0.0327) & (0.0327) \\ 
+\hline \\[-1.8ex]
+Observations & 305 & 305 & 305 & 305 \\ 
+R$^{2}$ & 0.7048 & 0.7189 & 0.7284 & 0.7273 \\ 
+Adj. R$^{2}$ & 0.6948 & 0.7093 & 0.6710 & 0.6697 \\ 
+F Statistic (df = 4; 294) & 175.52$^{***}$ & 187.94$^{***}$ & 168.27$^{***}$ & 167.31$^{***}$ \\ 
+Fixed Effects & Country & Country & Country-Year & Country-Year\\
+\hline 
+\hline \\[-1.8ex]
+\end{tabular}
+\begin{minipage}[t]{\textwidth}
+\small
+\textit{Note:} The table presents the results of four fixed effects models. Models (1) and (2) use both country and time fixed effects, while models (3) and (4) use only country fixed effects. All models account for individual heterogeneity, with robust standard errors reported in parentheses. Lagged rate of profit (lag(rop, 1)) is significant at the 1\% level across all models, indicating persistence in the rate of profit. The log of openness is significant in models (3) and (4) but not in models (1) and (2). The capital-labor index is statistically significant in some models. The variable Deviation from Productivity is significant only in models (3) and (4). Rate of Exploitation is significant in models (2) and (3). The R$^{2}$ and F-statistics suggest good model fit.
+\end{minipage}
+\end{table}
+
+% \begin{table}[!htbp] 
+% \centering 
+%   \caption{} 
+%   \label{table:regression_results} 
+% \begin{tabular}{@{\extracolsep{5pt}}lcc} 
+% \\[-1.8ex]\hline 
+% \hline \\[-1.8ex] 
+%  & \multicolumn{2}{c}{\textit{Dependent variable:}} \\
+% \\[-1.8ex] & \multicolumn{2}{c}{Rate of Profit$_{t}$} \\ 
+% \\[-1.8ex] & (1) & (2)\\ 
+% \hline \\[-1.8ex] 
+%  Rate of Profit$_{t-1}$ & 0.846$^{***}$ & 0.848$^{***}$ \\ 
+%   & (0.0203) & (0.026) \\ 
+%   & & \\ 
+%  Exploitation$_{t}$ &  & -0.003 \\ 
+%   &  & (0.017) \\ 
+%   & & \\ 
+%  Deviation from Wages$_{t}$ & 0.0006 & \\ 
+%   & (0.0009) & \\ 
+%   & & \\ 
+%  Capital to Labor$_{t}$ & -0.0028 & -0.002 \\ 
+%   & (0.0019) & (0.002) \\ 
+%   & & \\ 
+%  Openness$_{t}$ & 0.0465$^{***}$ & 0.044$^{***}$ \\ 
+%   & (0.016) & (0.016) \\ 
+%   & & \\ 
+%  Panic of 1873 & -0.0134$^{**}$ & -0.013$^{**}$ \\ 
+%   & (0.006) & (0.005) \\ 
+%   & & \\ 
+%  Deviation from GDP per labor hour$_{t}$ & 0.001$^{***}$ & \\ 
+%   & (0.0005) & \\ 
+%   & & \\ 
+%  Constant & 0.081$^{***}$ & 0.081$^{***}$ \\ 
+%   & (0.029) & (0.031) \\ 
+%   & & \\ 
+% \hline \\[-1.8ex]
+% Observations & 293 & 293 \\ 
+% Wald Chi(5) & 213.034$^{***}$ & 209.852$^{***}$ \\ 
+% \( R^2 \) & 0.72 & 0.71 \\ 
+% \hline 
+% \hline \\[-1.8ex]
+% \end{tabular}
+% \begin{minipage}[t]{\textwidth}
+% \small
+% \textit{Note:} The table shows the regression results for the Rate of Profit with two model specifications. In both models, the lagged Rate of Profit ($\text{\textit{Rate of Profit}}_{t-1}$) is statistically significant at the 1\% level, with a strong positive coefficient, indicating persistence in the Rate of Profit over time. The variable Exploitation$_{t}$ is not statistically significant in either model. Deviation from Wages$_{t}$ is significant in model (1) with a small positive coefficient, though it is not significant in model (2). Both models indicate a negative relationship between Capital to Labor$_{t}$ and the Rate of Profit, although the coefficient is small and not highly significant. Openness$_{t}$ is statistically significant at the 1\% level in both models, showing a positive effect on the Rate of Profit. The Panic of 1873 variable is also statistically significant at the 5\% level in both models, suggesting that it had a negative impact on the Rate of Profit. Deviation from GDP per labor hour$_{t}$ is statistically significant at the 1\% level in model (1), indicating a small positive effect. Finally, the constant term is positive and highly significant in both models, suggesting a baseline positive Rate of Profit. Both models have a significant Wald Chi-square statistic, confirming the overall significance of the models. The \( R^2 \) values indicate that approximately 72\% and 71\% of the variance in the Rate of Profit is explained by the independent variables in models (1) and (2), respectively.
+% \end{minipage}
+% \end{table}
+
+\par Capital mobility ensures that capital employed in areas where the highest surplus value cannot be extracted will seek outlets where higher surplus value extraction is possible. If the same capital is deployed elsewhere and, in conjunction with the local labor force, generates higher profits, the rate of profit will increase. However, the results are not ideal, as the data is limited to only 141 observations. To avoid the lagged rate of profit explaining the variation in the rate of profit, I regress only the capital export variable, measured as gross foreign exports as a proportion of each country's GDP. The findings indicate that capital export has a positive effect on the rate of profit, even after controlling for the exploitation index and the capital-to-labor ratio, as shown in Table 3. An alternative specification, which also accounts for deviations from the long-run GDP trend, yields similar results. This outcome is perhaps unsurprising, as one would expect the rate of profit to respond positively to increasing capital exports due to global arbitrage opportunities. 
+\begin{table}[!htbp]
+\centering
+\caption{Fixed Effects Regression Results}
+\label{table:regression_results}
+\begin{tabular}{@{\extracolsep{5pt}}lcc}
+\\[-1.8ex] \hline
+\hline \\[-1.8ex]
+& \multicolumn{2}{c}{\textit{Dependent variable:} Rate of Profit$_{t}$} \\
+\\[-1.8ex] & (1) & (2) \\
+\hline \\[-1.8ex]
+Rate of Exploitation  & 0.0749$^{***}$  & 0.0925$^{***}$  \\
+                         & (0.0139)        & (0.0247)        \\
+\\[-1.8ex]
+Gross Foreign Wealth to GDP & 0.00023$^{*}$  & 0.00024$^{*}$  \\
+                         & (0.00009)       & (0.00011)       \\
+\\[-1.8ex]
+Capital to Labor   & -0.0209$^{***}$ & -0.0204$^{*}$  \\
+                         & (0.0043)        & (0.0085)        \\
+\\[-1.8ex]
+\hline \\[-1.8ex]
+\textbf{Time Fixed Effects} & NO  &  YES \\
+\textbf{R-Squared} & 0.2854           & 0.5825          \\
+\textbf{Adj. R-Squared} & 0.2477      & 0.3506          \\
+\textbf{F-statistic} & 17.7015$^{***}$ & 2.7302$^{***}$ \\
+\textbf{Observations} & 141 & 141 \\
+\hline
+\hline \\[-1.8ex]
+\end{tabular}
+
+\begin{minipage}[t]{\textwidth}
+\small
+\textit{Note:} The table presents fixed-effects regression results for the Rate of Profit using two model specifications. Model (1) includes individual fixed effects, while Model (2) additionally accounts for time-fixed effects. All coefficients are reported with robust standard errors in parentheses. Statistical significance is denoted as follows: $^{***} p<0.01$, $^{**} p<0.05$, $^{*} p<0.1$.
+\end{minipage}
+\end{table}
+
+\par Turning to the concept of convergence in the context of increasing global capital export, as shown in Figure A4, we can also ask whether convergence applies here, since the mobility of capital should ensure the convergence of profit rates as well. When examining the convergence of profit rates in terms of Beta convergence, we observe a negative correlation between the lag of the rate of profit and its subsequent change in Table 4. Essentially, countries with higher initial rates of profit tend to experience less pronounced increases or declines compared to those with lower initial rates. This observation gains significance in the realm of the political economy of globalization, particularly considering that countries with lower profit rates often exhibit higher capital intensity. Notably, Germany and Britain, both characterized by lower profit rates, diverge in their trends—Germany showing an increasing trajectory while Britain witnesses a decline. This divergence challenges expectations, suggesting that countries with lower profit rates, such as Germany, might play a driving role in the forces promoting globalization. The decline in profit rates can be attributed to various factors, with scholars like Hobson highlighting the role of income inequality within wealthier nations in driving the export of savings to other countries. We observe not only absolute convergence but also examine the impact of trade openness on the dynamics of the rate of profit. Increasing trade openness is associated with a higher rate of profit change. This finding is intriguing, suggesting that greater openness not only influences the absolute level of the rate of profit but also contributes to its growth rate. 
+\begin{figure}[h]
+    \centering
+            \includegraphics[height=8cm,width=15cm]{sigma_convergence_plot_1.png}
+    \caption{}
+    \label{fig:enter-label}
+\end{figure}
+
+\par We also examine the variability in our profit rates in Figure 2 and find that, on average, the dispersion of profit rates across countries decreased during this period. However, there is an observable increase in the dispersion of profit rates around 1890. This uptick could be attributed to financial crises experienced by countries such as the United States, Germany, and the United Kingdom during this period, as can be traced in Table A1. Such crises may contribute to an increase in the dispersion of profit rates globally, especially in a world that may not be as globally interconnected as our present-day world. This downward trend is significant in Marxian economics, as it suggests a transfer of surplus from countries with lower organic compositions of capital to countries with higher organic compositions of capital. Unequal exchange requires this as a prerequisite, and we observe that globalization exhibits this tendency in profit rates. 
+
+\begin{table}[h] 
+\centering 
+  \caption{Beta Convergence Results} 
+  \label{table:beta_convergence}
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Beta Convergence}}\\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ Rate of Profit$_{t-1}$ & -0.101$^{***}$ & -0.119$^{***}$ \\ 
+  & (0.008) & (0.009)\\ 
+  & & \\ 
+  Openness$_{t-1}$ & & 0.03$^{**}$ \\ 
+  &  & (0.008)\\ 
+  & & \\
+ Constant & 0.016$^{***}$ & 0.052$^{***}$ \\ 
+  & (0.001) & (0.011)\\ 
+  & & \\
+\hline \\[-1.8ex] 
+\hline \\[-1.8ex] 
+Observations & 258 & 258 \\ 
+R$^{2}$ & 0.085 & 0.092 \\ 
+Adjusted R$^{2}$ & 0.059 & 0.066 \\ 
+F Statistic & 11.539$^{***}$ (df = 2; 250) & 12.456$^{***}$ (df = 2; 250) \\ 
+\hline 
+\hline \\[-1.8ex] \\ 
+\end{tabular}
+
+\vspace{0.5cm} % Adds a 0.5cm gap between the table and the note
+
+\begin{minipage}[t]{\textwidth}
+\small
+\textit{Note:} The table presents the results of the beta convergence analysis for the Rate of Profit. In both models, the lagged Rate of Profit ($\text{\textit{Rate of Profit}}_{t-1}$) is statistically significant at the 1\% level, with negative coefficients, indicating convergence over time. Model (2) includes the variable Openness$_{t-1}$, which is statistically significant at the 5\% level, with a positive coefficient, suggesting that greater openness is associated with slower convergence. The R$^{2}$ values indicate that approximately 8.5\% and 9.2\% of the variance in the Rate of Profit is explained by the independent variables in models (1) and (2), respectively. The F-statistics for both models are statistically significant at the 1\% level, confirming the overall significance of the models.
+\end{minipage}
+\end{table}
+\par As the primary explanatory variable in Table 2 is Trade Openness, it is crucial to explore whether the surge in the rate of profit can be attributed to either exports or imports. Existing literature extensively discusses protectionism and economic growth during the initial phase of globalization [\citep{ORourke2000tariffs}, \citep{schularick2011tariffs}]. While tariffs may not necessarily lead to reduced exports, they certainly act as disincentives for imports. The disincentivization of imports is evident in the way tariffs are calculated in the cited studies, specifically as import duties relative to total imports. Table 5 does just that. I have included the other explanatory variables like capital to labor index, rate of exploitation, and deviation from real wages in those regressions as other controls. I find that tariffs did have an affect on the rate of profit. An increase in tariffs by 1\% increases the rate of profit by 0.002 percentage points, highlighting the importance of protectionist measures during this time. 
+
+\par I aim to examine the same hypothesis regarding the impact on the rate of profit, distinguishing between imports and exports. This differentiation is vital because an increase in exports implies a greater absorptive capacity globally. Additionally, considering the historical context of captive markets in the colonial world, though the data is not conclusive, a plausible conjecture is that captive markets functioned as absorptive outlets for produced goods. This aligns with Hobson's underconsumptionist theory, linking the rise in exports during this period to growing inequality. The analysis reveals that while imports fail to contribute to the rise in the rate of profit, exports play a significant role in the examined countries. Another trade variable, terms of trade, is computed as the ratio of export basket prices to import basket prices. An increase in export prices is associated with higher exports, while a decrease in import prices has the opposite effect. Terms of trade here is measured as the price of imports in terms of exports, and an increase in this ratio decreases the rate of profit, meaning that exports mattered more for the rate of profit than imports. However, I do not see any statistically significant effect of terms of trade on the rate of profit. 
+
+\begin{table}[!htbp]
+  \small
+  \centering
+  \caption{Regression Results: Determinants of the Rate of Profit and Capital Accumulation}
+  \label{table:rop_regression_results}
+  \begin{tabular}{@{\extracolsep{4pt}}lcccccc}
+    \\[-1.5ex]\hline
+    \hline \\[-1.5ex]
+    & \multicolumn{4}{c}{\textit{Rate of Profit$_{t}$}} & \multicolumn{2}{c}{\textit{Capital Accumulation}} \\
+    \\[-1.5ex] & (1) & (2) & (3) & (4) & (5) & (6) \\
+    \hline \\[-1.5ex]
+    Rate of Profit$_{t-1}$ & 0.742$^{***}$ & 0.764$^{***}$ & 0.755$^{***}$ & 0.765$^{***}$ & & \\
+    & (0.037) & (0.035) & (0.036) & (0.035) & & \\
+    \\
+    Export/GDP$_{t}$ & 0.055$^{***}$ &  &  &  & & \\
+    & (0.015) &  &  &  & & \\
+    \\
+    Import/GDP$_{t}$ &  & $-$0.038 &  &  & & \\
+    &  & (0.057) &  &  & & \\
+    \\
+    Tariffs$_{t}$ &  &  & 0.002$^{**}$ &  & & \\
+    &  &  & (0.001) &  & & \\
+    \\
+    Terms of Trade$_{t}$ &  &  &  & $-$0.0004 & & \\
+    &  &  &  & (0.0002) & & \\
+    \\
+    Capital to Labor$_{t}$ & $-$0.004 & $-$0.002 & 0.002 & $-$0.002 & & \\
+    & (0.004) & (0.004) & (0.004) & (0.004) & & \\
+    \\
+    log(Rate of Profit$_{t}$) &  &  &  &  & 0.012$^{*}$ & 0.012$^{*}$ \\
+    &  &  &  &  & (0.006) & (0.006) \\
+    \\
+    Capacity Utilization$_{t}$ &  &  &  &  & & 0.0009 \\
+    &  &  &  &  & & (0.0006) \\
+    \hline \\[-1.5ex]
+    Year Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes \\
+    Country Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes \\
+    Observations & 305 & 305 & 261 & 305 & 299 & 299 \\
+    R$^{2}$ & 0.728 & 0.724 & 0.752 & 0.724 & 0.0159 & 0.0159 \\
+    Adj. R$^{2}$ & 0.670 & 0.666 & 0.690 & 0.666 & -0.1777 & -0.1777 \\
+    F Statistic & 167.62$^{***}$ & 164.99$^{***}$ & 157.51$^{***}$ & 164.63$^{***}$ & 4.025$^{**}$  & 4.025$^{**}$\\
+    \hline
+    \hline \\[-1.5ex]
+  \end{tabular} 
+  \begin{minipage}[t]{\textwidth}
+  \small
+  \textit{Note:} Standard errors are in parentheses. All models include two-way fixed effects. 
+  $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.1$. The results demonstrate a strong positive dependence of the current rate of profit on its lagged value. The Export-to-GDP ratio is positively and significantly associated with the rate of profit, while Import-to-GDP and Terms of Trade are statistically insignificant. Tariff levels exhibit a small but statistically significant positive relationship with the rate of profit. In the capital accumulation models, log of the Rate of Profit and Capacity Utilization are positively associated with capital accumulation, but their explanatory power is limited, as indicated by the low R-squared values.
+  \end{minipage}
+\end{table}
+
+\par In neoclassical economics, profitability does not play as important a role as it does in Marxian analysis. Capital accumulation in a neoclassical sense entails a savings-investment mechanism. An increase in savings naturally translates into investment in capital, as the cost of borrowing decreases with higher savings. However, profitability also plays a different dimension. It not only ensures savings, as an increase in profits could possibly lead to higher savings, but it also influences the Keynesian mechanism of willingness to invest or what is called Marginal efficiency of capital, which represents the expected profitability or the rate of return the firm anticipates by investing an additional unit of capital. Willingness to invest is significant in economics, and higher savings may not necessarily translate into higher investment. Higher profitability can tilt the balance in favor of investment and prevent idle inventory. While profitability may not appear prominently in neoclassical economics, it is important because it has clear implications for capital accumulation, which is a major determinant of economic growth. Although this aspect is not the main focus of my results, it demonstrates that focusing on trade openness and profitability is not futile, as it impacts economic growth. I claim that the mechanism through which trade openness affects capital accumulation is through profitability. However, a lack of data makes it challenging to ensure that I trace the true causal mechanism, but my results strongly suggest this relationship. I find that profitability does have a positive effect on capital accumulation, which is normalized to the fixed capital stock. Another specification involves including capacity utilization, as excess capacity should also influence the investment function. High profitability alone should not necessarily increase investment, as idle capacity can always be utilized to boost output, investing in new capital goods unnecessary at times. However, we do not find a statistically significant effect of capacity utilization on capital accumulation, possibly suggesting that countries during this time did not have ample idle capacity. Additionally, since exports are the driving force behind the increase in profitability, this could potentially explain why capacity remained stable, as the goods produced found outlets, unlike in a closed economy. 
+\begin{center}
+\begin{tikzpicture}[node distance=4cm]
+\node (drain) [process] {Globalization};
+\node (profit) [process, right of=drain] {Rate of Profit};
+\node (capital) [process, right of=profit] {Capital Accumulation};
+\draw [arrow] (drain) -- (profit);
+\draw [arrow] (profit) -- (capital);
+\end{tikzpicture}
+\end{center}
+\section{Conclusion}
+In conclusion, this paper has embarked on an exploration of a pivotal historical period, specifically from 1870 to 1913, that defies conventional narratives surrounding the origins of globalization. \citet{ORourke2002} played a crucial role in reshaping our understanding of this era, highlighting unique features such as factor price equalization, commodity prices, and endowments. While skepticism has been voiced by some scholars, a considerable body of evidence, as presented by \citet{Estevadeordal2003}, \citet{KlasingMilionis2014}, \citet{JacksMeissnerNovy2011}, and others, underscores the transformative nature of this historical phase. The globalization witnessed during this period had profound implications for the dynamics of profit rates. Drawing from Marxist economic thought, we look into the intricacies of capital mobility, the equalization of profit rates, and the consequent redistribution of surplus value among nations. The rise in global trade emerged not merely as an exchange of goods and services but as a complex interplay of capital seeking optimal returns. As Karl Marx and Frederick Engels eloquently expressed in the Communist Manifesto, the bourgeoisie's exploitation of the world market gave production and consumption a cosmopolitan character.
+\par Our empirical analysis, a crucial contribution to the broader Marxist research on profit rates, addresses a historical gap, shedding light on an era not extensively explored in contemporary literature. By providing empirical evidence on the equalization of profit rates and investigating the role of foreign trade as a counteracting force, this study offers fresh insights. Furthermore, the exploration of profit rate equalization becomes paramount for understanding unequal exchange, a concept intricately tied to the classical assumption of uniform profit rates. While our study indicates a positive influence of the rise in global trade on profitability, the ease of capital mobility, a prerequisite for profit rate equalization, remains uncertain. Econometric methods have been employed to rigorously assess the impact of globalization on profit rates. As we navigate the theoretical discussions, methodological concepts, and empirical findings presented in this paper, we recognize the need for continued exploration and nuanced understanding of the historical context. The intricate relationship between globalization and profit rates demands ongoing scholarly attention, opening avenues for future research and deepening our comprehension of economic dynamics in an interconnected world. In the spirit of critical inquiry and intellectual curiosity, this paper contributes to the ongoing discourse, inviting scholars to look further into the complexities of globalization's historical impact on profit rates.
+\section{Data Appendix}
+I utilize the perpetual inventory method when the fixed capital stock data is missing for a particular country. This method involves considering the different types of capital available in the economy. Categorizing capital is important because each type of capital has a distinct service life. The perpetual inventory method follows a straightforward formula: $K_{t} = K_{0} + \sum_{i=0}^{d-1} I_{t-i}$, where $d$ represents the service life of the capital, and I denotes the gross fixed capital formation in year t. Two challenges arise within this approach. Firstly, it is necessary to determine the service life of various fixed capital assets. Secondly, establishing the initial fixed capital stock presents another issue. To address these challenges, I adopt the assumptions made by \citet{feinstein1998pessimism} and \citet{prados2010human}, who suggest a service life of 60 years for dwellings and other construction, and 15 years for machinery and equipment. \citet{JordaSchularickTaylor2017} have gathered and consolidated data on the level of trade openness for numerous countries during approximately the same period. As for the tariffs data, it has been procured from \citet{ClemensWilliamson2004}. Net foreign assets data are sourced from \citet{PikettyZucman2014}, who provide a comprehensive analysis of global wealth and capital dynamics. The rates of profit measures are presented in Figure A3
+\begin{itemize}
+    \item Netherlands - \citet{SmitsHorlingsZanden2000} provide comprehensive estimates of different types of fixed capital, including machinery, dwellings (both residential and non-residential), as well as national income and its distributive components, such as income received by workers and capital owners.
+    \item United Kingdom - The measurements of Fixed Capital Stock are derived from \citet{feinstein1998pessimism} estimations, which continue to be considered the most dependable assessments of fixed capital stock during the 19th century. \citet{Clark2010} provides information on wage shares during this period, while \citet{Clark2002} is the source for land incomes. The acreage of land is obtained from \citet{Allen2005}.
+    \item Spain - \citet{PradosEscosura2022} has the estimates for fixed capital in Spain. While for the distribution of income into its components can also be found in the works of the same author \citep{PradosEscosura2017}.
+    \item United States - The rate of profit for the United States has been computed already by \citet{dumenil2013uslt}. It also provides the data for labor hours as well as total national income. 
+    \item France - \citet{levy2008french} have categorized gross fixed capital formation into different groups. In my analysis, I have classified railway equipment, plant machinery \& vehicle as part of the Machinery category. Other types of fixed capital are categorized as dwellings or construction when calculating the fixed capital stock.To obtain actual wage measures, I utilize the capital share net taxes provided by \citet{PikettyZucman2014}. This allows for the calculation of total wages starting from 1896, which is when their data series begins. For the years prior to 1896, I derive the total wage by employing labor figures from \citet{Mitchell1975} and real wage indices from \citet{levy2008french}. This approach provides an estimate of total wages for the period preceding 1896.
+    \item Sweden - \citet{Edvinsson2016} has compiled all the necessary historical for us to compute the rate of profit. 
+    \item Germany - \citet{PikettyZucman2014} provide data on the wage share, but their focus is primarily on wealth estimates, which may differ significantly from fixed capital stock. In contrast, \citet{Hoffmann1965} presents the fixed capital stock for Germany. However, it is important to note that in this analysis, the fixed capital stock is used by adding agricultural assets, land \& business assets. 
+
+\end{itemize} 
+\bibliographystyle{plainnat} 
+\bibliography{references} 
+\newpage
+\section{Appendix} 
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\begin{table}[h]
+  \centering
+  \caption{Countries and Financial Crises}
+  \begin{tabular}{lc}
+    \toprule
+    \textbf{Country} & \textbf{Financial Crises} \\
+    \midrule
+    USA & 1873-1874, 1884-86, 1890, 1893-96, 1907-11\\
+    Germany & 1881-81, 1891, 1901-02 \\
+    United Kingdom & 1890-93 \\
+    Sweden & 1897,1907-09 \\
+    Spain & - \\ 
+    France & 1870, 1882-89, 1904, 1907-08\\
+    Netherlands & -\\ 
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[height=14cm,width=15cm,keepaspectratio]{trade_openness_all_countries.png}
+    \caption{Trade Openness as a ratio of GDP for major countries around the world}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=7cm, width=15cm]{exp_world.jpeg}
+    \caption{Export to GDP over the years}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}
+    \begin{center}
+        \includegraphics[height=9cm, width=16cm]{all_rops.png}
+        \caption{Rates of profit across the world}
+        \label{fig:enter-label}
+    \end{center}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[height=9cm,width=16cm]{fixed_assets_gdp.png}
+    \caption{Foreign Assets as a proportion of GDP}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\newpage
+\subsection{Convergence Dynamics}
+Here I present a brief mathematical exposition of the rate of profit dynamics and how the dynamics can be adopted in our context. If we are to assume a steady state of the rate of profit then we could follow Sala-i-martin's exposition. In neoclassical economics, the presence of super-profits in a sector or country will attract more capital and labor to that sector/country, assuming perfect mobility of both factors. This competition will eventually drive profits down to zero, resulting in what is referred to as "normal profits." However, in the heterodox tradition, the rates of profit are expected to converge to a positive value rather than reaching zero, which is determined by the capital-labor ratio \& the exploitation rate of labor (\citet{GlickOchoa1990}; \citet{LianosDroucopoulos1993}). Such being the case \& if there is a tendency for the rate of profit to fall, then there must be some interest in knowing whether the classical assumption of equalization of profit rates hold, and if they are then at what rate are they converging. The latter is significant because it involves two conflicting forces influencing the level of dispersion of profit rates. On one hand, differences in capital intensity may lead to higher wage growth, resulting in diverging profit rates. On the other hand, the convergence effect occurs due to the expansion of trade, enabling high capital intensity firms to earn more profits by transferring surplus from lower capital intensive countries. Assume that $\eta$-convergence holds for economies i=1,...,N. Natural log of the i-th economy can be approximated by \begin{equation*}
+    ln(r_{it}) = \alpha + (1-\beta)ln(r_{i,t-1}) + u_{it}.
+\end{equation*}
+where 0$<\beta<$1 and $u_{it}$ has mean zero, finite variance, $\sigma_{u}$, and is independent over $t$ and $i$. Manipulating equation (1) yields. 
+\begin{equation*}
+    ln\Bigg(\frac{r_{it}}{r_{i,t-1}}\Bigg) = \alpha - \beta ln(r_{i,t-1}) + u_{it}.
+\end{equation*}
+So a negative $\beta$ implies a negative correlation between rate of growth of the rate of profit and the initial log rate of profit. While the sample variance of log of the rate of profit in $t$ is given by 
+\begin{equation*}
+    \sigma_{t}^{2} = (\frac{1}{N}) \sum^{N}_{i=1} [ln(r_{it}) - \mu_{t}]^{2}
+\end{equation*}
+where $\mu_{t}$ is the sample mean of the log of the rate of profit. The sample variance is close to the population variance when N is large and we can derive the evolution of $\sigma^{2}_{t}$
+\begin{equation*}
+    \sigma_{t}^{2} \approx (1-\beta)^{2} \sigma^{2}_{t-1} + \sigma^{2}_{u}
+\end{equation*}
+Only if 0$<\beta<$1 is the difference equation stable, so $\beta$-convergence is necessary for $\sigma$-convergence. Given 0$<\beta<$1, the steady state variance is 
+\begin{equation*}
+    \sigma^{2*} = \frac{\sigma^{2}_{u}}{[1-(1-\beta)^{2}]}
+\end{equation*} 
+Thus, the cross-sectional dispersion falls with $\beta$ but rises with $\sigma^{2}_{u}$. We get 
+\begin{equation*}
+    \sigma_{t}^{2} = (1-\beta)^{2}\sigma^{2}_{t-1} + [1-1(1-\beta)^{2}](\sigma^{2*})
+\end{equation*}
+The equation above can be solved for $\sigma_{t}$
+\begin{equation*}
+    \sigma^{2}_{t} = (\sigma^{2*}) + (1-\beta)^{2t}[\sigma^{2}_{0}-\sigma^{2*}] + c(1-\beta)^{2t}
+\end{equation*}
+We can see the convergence dynamics play out from the solution presented above as $\lim_{t \to \infty} (1-\beta)^{2t} = 0$ \& $\lim_{t \to \infty} \sigma^{2}_{t} = \sigma^{2*}$. In the context of profit rates, $\beta$- convergence points to the "catching-up" effect. The richer countries are expected to have a lower rate of profit compared to the countries that are starting out. Meanwhile, $\sigma$-convergence informs us of the level of dispersion in rates of profit across economies during the first age of globalization. 
+
+\end{document}
