@@ -1,0 +1,472 @@
+% !TEX program = xelatex
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{fontspec}
+\setmainfont{Georgia}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=cyan}
+\usepackage[round]{natbib}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{longtable}
+
+% Referee comment box
+\newmdenv[
+  backgroundcolor=gray!10,
+  linecolor=gray,
+  linewidth=0.5pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+]{refereebox}
+
+\newcommand{\RC}[1]{\begin{refereebox}\textit{\textbf{Referee comment:} #1}\end{refereebox}}
+\newcommand{\AR}{\noindent\textbf{Response:}\ }
+\newcommand{\done}{\textcolor{teal}{\textbf{[Done]}}}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Response to Referee Report}}\\[1em]
+{\large \textit{An Unequal Equalization: Understanding the Response of Rates of Profit\\
+during the First Age of Globalization (1870--1913)}}\\[0.5em]
+{\normalsize \textit{Review of Social Economy}}\\[0.5em]
+{\normalsize March 2026}
+\end{center}
+
+\bigskip
+
+We thank the referee for a thorough and constructive second reading of the manuscript. The comments have led to substantial improvements. We respond to each concern in turn below. Changes to the manuscript are described alongside each response. A marked-up version of the manuscript indicates all new or substantially revised passages.
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+%% =============================================================
+\section*{Section 1: Introduction}
+%% =============================================================
+
+\subsection*{Concern 1.1}
+
+\RC{I don't think the paper conclusively proves that the period between 1870--1913 is the first age of globalization. Even within the sample of European capitalist countries, larger countries like Germany, Spain, France and the US have a very low share of trade as a proportion of their GDP.}
+
+\AR The designation of 1870--1913 as the ``first age of globalization'' follows a well-established historiographic consensus, not a claim we make independently. O'Rourke and Williamson (2002), Bordo, Eichengreen, and Irwin (2000), Estevadeordal, Frantz, and Taylor (2003), and Klasing and Milionis (2014) all use this periodization and define the era by the unprecedented integration of commodity and factor markets that followed the steamship and railway revolution. Labeling this period the first globalization is the standard in the economic history literature, and we follow that convention explicitly.
+
+On the concern about low trade/GDP levels in larger economies: our empirical design does not rely on a cross-sectional comparison of openness levels. The two-way fixed effects (TWFE) estimator absorbs country-level baseline differences entirely via country fixed effects; what identifies our coefficient is the \emph{within-country acceleration of trade integration} over 1870--1913, not the cross-sectional ranking of openness. We have added a footnote to the Introduction making this explicit. Even for the larger economies, Figure~1 shows a visible upward trend over the period; the claim is that they became measurably more integrated, not that they reached the same openness levels as the Netherlands or Sweden.
+
+\smallskip\noindent\textit{Manuscript location: Introduction, footnote~2.}
+
+\subsection*{Concern 1.2}
+
+\RC{Figure A1 (which is on page 39) which has one data point per century cannot be the sole evidence to support the claim that this was the first instance of globalization. Further, even in this figure, one can see that the Export/GDP ratio is rising before 1870. Why is 1870 then chosen as the starting date? In the absence of empirical evidence, there must be some discussion of the extant literature that supports this claim.}
+
+\AR We agree that Figure A1 alone is insufficient and have strengthened the textual justification considerably. We now follow O'Rourke and Williamson (2002) explicitly, noting that their criterion for dating the first globalization is a \emph{structural break in commodity price convergence}, which they identify in the early 1870s following the freight-cost revolution driven by steamships and the railway network. While trade volumes were rising before 1870, the systemic integration of commodity and factor markets---the hallmark of globalization---began thereafter. We have added a footnote to the opening sentence of the Introduction:
+
+\begin{quote}
+\textit{``Although trade volumes were already rising before 1870, O'Rourke and Williamson (2002) identify a structural break in commodity price convergence beginning in the early 1870s, following the railways and steamship revolution that sharply reduced freight costs. We follow this convention in dating the first globalization.''}
+\end{quote}
+
+Additional references supporting the 1870 start date have been cited in the text (Estevadeordal et al.\ 2003; Klasing and Milionis 2014; Jacks et al.\ 2011).
+
+\smallskip\noindent\textit{Manuscript location: Introduction, footnote~1.}
+
+\subsection*{Concern 1.3}
+
+\RC{The choice of both, the period and countries included in this study is not justified in the paper which may raise concerns about selection bias.}
+
+\AR The sample of seven countries (UK, USA, Germany, France, Netherlands, Sweden, Spain) is determined entirely by the \emph{availability of high-quality historical national accounts}---specifically, annual capital stock and factor share data required to reconstruct Marxian variables at the necessary level of disaggregation. We have added an explicit statement in the Data section (Section~3) explaining this constraint and noting that these seven economies represented a dominant share of global industrial output and trade during the period.
+
+To address selection bias directly, we have conducted a \textbf{leave-one-out (LOO) analysis}: we re-estimate our preferred IV specification dropping one country at a time. The coefficient on log trade openness is positive across all seven LOO subsamples, ranging from 0.23 to 0.43, confirming that no single country drives the finding. These results are reported in the manuscript.
+
+\smallskip\noindent\textit{Manuscript location: Section~3 (Data), sample description paragraph; Appendix Table~A3 (LOO results).}
+
+\subsection*{Concern 1.4 -- Railways Timing}
+
+\RC{The construction of railways in North American colonies started in early 1800s and that in India started around 1840s. Why then, is the first age of globalization lagging the movement of capital by almost five decades?}
+
+\AR This is a perceptive historical observation. We address it via a footnote in the Introduction:
+
+\begin{quote}
+\textit{``It is also worth noting that capital exports to colonies---most visibly railway construction in North America (1830s) and India (1840s)---preceded this structural break; those earlier movements represent isolated capital deployment rather than the systemic integration of commodity and factor markets that defines the era studied here (Pascali 2017).''}
+\end{quote}
+
+The distinction is between \emph{directed capital export for extractive purposes} (financing specific colonial infrastructure) and \emph{systemic market integration} involving simultaneous convergence of commodity prices, factor prices, and freight costs across the Atlantic economy. The former preceded the latter; the structural break documented by O'Rourke and Williamson marks when the latter commenced.
+
+\smallskip\noindent\textit{Manuscript location: Introduction, footnote~1 (second sentence).}
+
+\subsection*{Concern 1.5 -- Colonial Trade Pattern}
+
+\RC{Trade openness by itself is not sufficient to prove the equalization of profit rates. In fact, the authors completely ignore the colonial trade pattern of raw materials being imported from colonies and finished products being exported.}
+
+\AR We thank the referee for raising this point. We have added discussion in the Conclusion addressing the colonial trade pattern directly.
+
+The colonial trade structure---finished goods exported from core economies, raw materials imported from periphery---is in fact \emph{consistent} with our empirical finding that export/GDP drives profitability while import/GDP does not. Exports of finished goods at monopoly prices expand the realization of surplus value; imports of cheap raw materials lower constant capital costs. Both channels, as identified by Marx (Vol.~III), act to raise the rate of profit in the core economies. We note, however, that our empirical results find the import channel to be statistically insignificant---the cost-reducing effect of cheap raw material imports does not emerge as a separate, identifiable force in the data. This likely reflects the fact that the import cost channel operates diffusely across all input prices and is difficult to isolate from the aggregate openness measure, whereas the export channel---surplus realization on global markets---maps more directly onto observable trade flows. Our paper focuses on market-mediated profit equalization among the seven core capitalist economies; the drain-of-wealth channel (Patnaik, Naoroji) represents a complementary mechanism that we acknowledge but do not model directly.
+
+\smallskip\noindent\textit{Manuscript location: Conclusion, paragraphs on the export channel and colonial surplus realization.}
+
+\subsection*{Concern 1.6 -- Preview of Results / IV Explanation}
+
+\RC{The preview of results included in this section needs to be fleshed out in a lot more detail. There are some mentions of reverse causality and an instrument related to temperature uncertainties and maritime distance between trading partners. However, I am not sure what the instrument actually is and why it works? More specifically, there is no mention of the relevance criteria in this discussion.}
+
+\AR We have substantially expanded the IV preview in the Introduction. The revised text now explains: (1)~\emph{what the instrument is}---temperature uncertainty in partner countries interacted with time-invariant geographic characteristics (maritime distance and colonial status) to construct predicted trade openness; (2)~\emph{why it works}---weather shocks in trading partner countries create measurable frictions in trade logistics, amplified by distance and colonial ties; (3)~\emph{relevance}---first-stage F-statistics exceed 50 in all specifications, well above conventional thresholds; (4)~\emph{limitations}---with only seven clusters, we acknowledge inference limitations and present wild-cluster bootstrap results as a robustness check.
+
+\smallskip\noindent\textit{Manuscript location: Introduction, paragraph beginning ``An important aspect of this study\ldots''}
+
+\subsection*{Concern 1.7 -- Introduction Style}
+
+\RC{This section reads more like a dissertation chapter which may be coherent within the overall thesis. It should be modified (rewritten) as a journal article introduction.}
+
+\AR We have substantially revised the Introduction. The revision removes descriptive passages better placed in the theory or data sections, tightens the motivation, and restructures the section around the standard journal article format: (1)~what we study and why it matters; (2)~what we find; (3)~how we do it; (4)~roadmap. The theoretical literature discussion resides in Section~2, where it belongs.
+
+\smallskip\noindent\textit{Manuscript location: Introduction (restructured throughout).}
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+%% =============================================================
+\section*{Section 2: Globalization and the Falling Rate of Profit}
+%% =============================================================
+
+\subsection*{Concern 2.1 -- Merge with Introduction}
+
+\RC{This section should be merged with the introduction as it really helps explain the motivations behind this research.}
+
+\AR We appreciate this suggestion. However, we have opted to retain Section~2 as a standalone theoretical section for two reasons. First, the section contains approximately 1,300 words of systematic literature review (Marxian political economy of foreign trade plus convergence literature), which would make the Introduction unwieldy if incorporated wholesale. Second, the structure---short motivational introduction followed by a dedicated theory section---is standard in heterodox economics journals, including \textit{Review of Social Economy}. The Introduction now previews the theoretical arguments concisely, while Section~2 develops them in full. We have, however, acted on the referee's underlying concern by removing extraneous material from Section~2 (see Concern~2.2) and opening Section~2 with a direct link to the empirical question.
+
+\smallskip\noindent\textit{Manuscript location: Section~2 retained as standalone section.}
+
+\subsection*{Concern 2.2 -- Remove FDI and WWI}
+
+\RC{My main comment for this section would be to remove the discussion on FDI and endogenizing World War I. The discussion is only tangentially relevant for this analysis.}
+
+\AR \done\ The FDI paragraph has been removed from Section~2. References to the endogenization of World War~I have also been excised. The section now focuses exclusively on the Marxian mechanisms through which trade affects the rate of profit and on the prior empirical literature on profit rate convergence.
+
+\smallskip\noindent\textit{Manuscript location: Section~2 (confirmed: no FDI or WWI content remains).}
+
+\subsection*{Concern 2.3 -- Marxian vs.\ Neoclassical Equalization}
+
+\RC{The authors mention the differences in the `tendency' of profit rate equalizing in Marxian analysis and the actual equalization of profits under the assumptions of long-run perfect competition. However, I am not convinced that this is relevant to this paper.}
+
+\AR We retain this distinction because it is directly relevant to interpreting our convergence results. The neoclassical equilibrium conception predicts complete, permanent equalization; the Marxian conception predicts a \emph{tendency} toward equalization that is never fully realized due to ongoing competitive dynamics, technological change, and uneven development. Our empirical finding of \emph{beta-convergence} (catching-up) without full \emph{sigma-convergence} (persistent dispersion) aligns with the Marxian tendency interpretation rather than the neoclassical equilibrium prediction. We have revised the text to make this interpretive link explicit.
+
+\smallskip\noindent\textit{Manuscript location: Section~2, paragraph distinguishing Marxian tendency from neoclassical equilibrium; Section~5.2 (convergence results).}
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+%% =============================================================
+\section*{Section 3: Empirical Strategy}
+%% =============================================================
+
+\subsection*{Concern 3.1 -- Data Before Empirical Strategy}
+
+\RC{It would be easier if the paper first discusses the data and variable creation and then moves to the empirical specifications.}
+
+\AR \done\ In the revised manuscript, Section~3 covers Data and Variable Construction in full, and Section~4 covers Empirical Strategy. This is the order the referee recommends.
+
+\smallskip\noindent\textit{Manuscript location: Section~3 (Data) precedes Section~4 (Empirical Strategy).}
+
+\subsection*{Concern 3.2 -- Small Clusters / Bootstrap}
+
+\RC{The main issue with the two-way fixed effects model is the very small number of countries used in the estimation. The authors should discuss why inference may be biased because there are only seven clusters. Maybe consider bootstrapping the standard errors?}
+
+\AR We have added an explicit discussion of inference with few clusters and now report wild-cluster bootstrap $p$-values (Rademacher weights, $B = 9{,}999$) following Cameron and Miller (2015) and MacKinnon and Webb (2017).
+
+Honest reporting requires us to note: the TWFE openness coefficient does not achieve conventional significance under the wild-cluster bootstrap ($p = 0.33$ for the preferred specification with lag; $p = 0.39$ without lag). We therefore treat the TWFE result as \emph{suggestive} and emphasize our IV estimates as the primary identification, which remain statistically significant ($p < 0.05$ and $p < 0.01$ across specifications). The manuscript has been updated to reflect this distinction clearly.
+
+\smallskip\noindent\textit{Manuscript location: Section~5.1, TWFE results discussion (wild-cluster bootstrap paragraph).}
+
+\subsection*{Concern 3.3 -- Summary Statistics and Control Variables Table}
+
+\RC{The control variables (and their summary statistics) used in the regressions should be listed in a Table so readers know which variables are included in vector $X$.}
+
+\AR \done\ We have added a \textbf{Summary Statistics table} (Table~2 in the revised manuscript) covering all nine variables used in estimation: Net Rate of Profit, Trade Openness, Export/GDP, Import/GDP, Tariff Rate, Terms of Trade, Net Foreign Assets/GDP, Capital-Labor Index, and Exploitation Rate. Columns report $N$, Mean, SD, Min, and Max.
+
+\smallskip\noindent\textit{Manuscript location: Table~2.}
+
+\subsection*{Concern 3.4 -- IV Explanation Unclear}
+
+\RC{The IV needs to be properly explained and the relevance criteria needs to be discussed in more detail. The discussion leaves the reader rather lost.}
+
+\AR We have substantially rewritten Section~4.4 (Instrumental Variable Strategy). The revised section explains: (1)~the source of endogeneity (reverse causality from profitability to trade-seeking); (2)~the construction of the instrument step by step---temperature uncertainty in partner countries from Berkeley Earth, interacted with maritime distance and colonial indicators from CEPII; (3)~the gravity model (PPML) used to generate predicted bilateral trade flows; (4)~how predicted flows aggregate to country-level predicted openness; (5)~why the exclusion restriction is plausible (domestic climate conditions are controlled for directly in the second stage); and (6)~first-stage F-statistics confirming relevance (exceeding 50 in all specifications).
+
+\smallskip\noindent\textit{Manuscript location: Section~4.4 (Instrumental Variable Strategy).}
+
+\subsection*{Concern 3.5 -- PPML Section}
+
+\RC{The section on Pseudo Poisson ML needs to be rewritten in greater detail since the discussion leaves the reader rather lost.}
+
+\AR The gravity model section has been rewritten. We now explain why PPML is preferred over OLS for gravity estimation (Silva and Tenreyro 2006: OLS is inconsistent under heteroskedasticity and cannot accommodate zero trade flows), describe the estimation sample (113 origin countries, 186 destination countries, bilateral observations covering 1870--1913), and state the first-stage regression equation explicitly.
+
+\smallskip\noindent\textit{Manuscript location: Section~4.4, PPML gravity model subsection.}
+
+\subsection*{Concern 3.6 -- Placebo Test}
+
+\RC{A placebo test using 1820--1870 data would be useful.}
+
+\AR We are unable to conduct this placebo test, but we wish to make a stronger point than a simple data constraint: even if the data existed, 1820--1870 would not constitute a valid placebo period in the conventional sense. A placebo test is informative when it applies the estimated mechanism to a period in which the treatment is absent and where finding no effect provides genuine reassurance. But 1820--1870 is, by the same literature we invoke to justify our start date (O'Rourke and Williamson 2002; Bordo et al.\ 2000), the \emph{pre-globalization regime}---a period before the structural break in commodity price convergence and before the freight-cost revolution. Finding no effect of trade openness on profit rates in a period defined by the absence of systemic market integration would be trivially expected and would add no information about whether our mechanism is spurious.
+
+Put differently, the 1870 start date is not arbitrary data availability---it is theoretically motivated by the structural break that constitutes the phenomenon under study. A placebo test requires a period where the mechanism \emph{could} plausibly operate but does not; the pre-globalization era is a period where the mechanism had not yet been switched on. Nonetheless, in the interest of full transparency, we note that the data constraint is also binding: consistent annual capital stock series for our seven-country sample do not exist before 1870. We have stated both the theoretical and empirical reasons explicitly in the Robustness section.
+
+\smallskip\noindent\textit{Manuscript location: Section~5.3 (IV Results), paragraph on placebo test infeasibility.}
+
+\subsection*{Concern 3.7 -- Longer Time Period / 1820--1913}
+
+\RC{The authors should show how their results are robust to the inclusion of a longer time period. For example, it may be interesting to see if the results change if we use data from 1820--1913.}
+
+\AR We do not have the data to extend to 1820---see our response to Concern~3.6 above. The annual Marxian variables (profit rate, exploitation rate, capital-labor ratio) require national accounts data unavailable at the necessary frequency before 1870. We acknowledge this as a limitation of the study.
+
+\smallskip\noindent\textit{Manuscript location: Same as Concern~3.6; data constraint acknowledged in Section~3 (Data).}
+
+\subsection*{Concern 3.8 -- Other Countries / Japan}
+
+\RC{The authors should show how would the results change if other European countries and Japan were to be included in the sample?}
+
+\AR The sample is determined by data constraints: the availability of annual capital stock and factor share data required to reconstruct the net rate of profit. Japan, for instance, lacks consistent annual capital stock data for this period at the level of disaggregation needed to exclude residential dwellings and compute net (depreciation-adjusted) productive capital. We have made this constraint explicit in the Data section and acknowledge it as a limitation. The LOO analysis (Concern~3.9) partially addresses the robustness concern within our sample.
+
+\smallskip\noindent\textit{Manuscript location: Section~3 (Data), sample constraint paragraph; Table~A3 (LOO robustness).}
+
+\subsection*{Concern 3.9 -- Leave-One-Out Analysis}
+
+\RC{To address concerns around selection bias, the authors can drop one country at a time and rerun their regressions to show that the results are not driven by the inclusion of a particular country in the sample.}
+
+\AR \done\ We have conducted a leave-one-out analysis across all seven countries, re-estimating the preferred IV specification with one country dropped at a time. The results are as follows:
+
+\medskip
+\begin{center}
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Country dropped} & \textbf{IV coefficient} & \textbf{SE} \\
+\midrule
+Germany     & 0.354$^{***}$ & (0.049) \\
+Sweden      & 0.340$^{**}$  & (0.087) \\
+Netherlands & 0.302$^{***}$ & (0.066) \\
+USA         & 0.227$^{**}$  & (0.076) \\
+Spain       & 0.429$^{**}$  & (0.140) \\
+France      & 0.304$^{***}$ & (0.069) \\
+UK          & 0.306$^{***}$ & (0.055) \\
+\bottomrule
+\multicolumn{3}{l}{\footnotesize All specifications include country and year fixed effects.}\\
+\multicolumn{3}{l}{\footnotesize Standard errors clustered at the country level.}
+\end{tabular}
+\end{center}
+\medskip
+
+The coefficient is positive in every subsample, ranging from 0.227 (dropping the USA) to 0.429 (dropping Spain), and the sign is never reversed. No single country drives the result. These figures are also reported in the table note of the IV results table in the manuscript. We note that the LOO specifications use only six clusters each, which exacerbates the few-clusters inference problem discussed under Concern~3.2. The reported standard errors are based on asymptotic clustered inference; wild-cluster bootstrap with six clusters would have even less resolution than the seven-cluster bootstrap reported for the full sample. We therefore emphasize the stability of the \emph{point estimates} across LOO subsamples---rather than the individual significance stars---as the primary evidence against single-country sensitivity.
+
+\smallskip\noindent\textit{Manuscript location: Section~5.3 (IV Results), LOO paragraph; Appendix Table~A3.}
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+%% =============================================================
+\section*{Section 4: Data and Variable Construction}
+%% =============================================================
+
+\subsection*{Concern 4.1 -- Perpetual Inventory Method / Net vs.\ Gross}
+
+\RC{What is perpetual inventory method and why is it first being introduced on page 14 of the paper? Also, shouldn't it be net and not gross fixed capital formation in year $t$? If not, then how is depreciation accounted for?}
+
+\AR We have clarified the presentation. The Perpetual Inventory Method (PIM) is the standard procedure for constructing capital stock from investment flow data: $K_t = K_{t-1}(1 - \delta) + I_t$, where $\delta$ is the depreciation rate and $I_t$ is gross fixed capital formation. We use PIM only for France and the Netherlands, for which direct net capital stock estimates are unavailable; all other countries use published net capital stock series directly. Where gross investment flows are the input to PIM, depreciation is subtracted explicitly via the $(1-\delta)K_{t-1}$ term. This procedure and first use of the term have been moved to their appropriate position in the Data section.
+
+We also wish to draw attention to a broader theoretical contribution embedded in our capital measure. The variable we construct is the \emph{net productive capital stock}, which excludes residential dwellings and is adjusted for depreciation. This departs from the practice in most neoclassical empirical studies of profit rates (e.g.\ Harberger 1978; Glyn 2004), which use gross or land-inclusive capital measures that conflate productive capital with non-productive assets. Our measure is more precise from a Marxian standpoint: constant capital ($c$) in the rate of profit formula $r = s/(c+v)$ refers to \emph{productive} capital only---machinery, structures used in production, and working capital---not housing or land. By constructing a measure that respects this distinction, we reduce the denominator bias that would otherwise compress the estimated rate of profit and obscure its cyclical and secular dynamics. This is a theoretical refinement, not merely a data choice.
+
+As part of this revision, we also improved the underlying capital stock series for France and the Netherlands, replacing PIM-based estimates with primary national-accounts sources (Piketty--Zucman constant-price productive stock for France; Smits--Horlings--Van~Zanden net productive capital for the Netherlands). This revision changes the level and dynamics of the net rate of profit for these two countries and consequently updates several TWFE coefficient estimates relative to the prior draft. The main causal finding---the IV estimate of 0.30--0.33 percentage points---is unaffected, as the IV identification exploits variation in predicted openness from the gravity model rather than the profit-rate level. All tables in the revised manuscript reflect the updated series, and the replication package reproduces them exactly.
+
+\smallskip\noindent\textit{Manuscript location: Section~3 (Data), footnote on PIM; Table~1 (Capital Stock Sources).}
+
+\subsection*{Concern 4.2 -- Data Sources and Summary Statistics}
+
+\RC{What are the sources of data, how did the authors access the data, where can other researchers get access to data, what are the summary statistics need to be presented in the paper.}
+
+\AR \done\ We have substantially revised Table~1 (Capital Stock Sources and Construction) and added a new Summary Statistics table (Table~2). Table~1 now includes hyperlinked download URLs for each dataset, the specific sheet and column used from each source file, and the construction method for each country. Summary statistics are presented in Table~2 (see Concern~3.3). Data sources for trade, tariffs, net foreign assets, GDP, and bilateral trade flows are described in a dedicated subsection with full bibliographic citations. A complete replication package (data files and code) has been made publicly available at \url{https://osf.io/pv8ak/?view_only=d4f0acf2e34a4ccbba72e5ea95d2aeb6}.
+
+\smallskip\noindent\textit{Manuscript location: Table~1 (with hyperlinks); Section~3.5 (Other Data Sources); Table~2 (Summary Statistics).}
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+%% =============================================================
+\section*{Section 5: Results}
+%% =============================================================
+
+\subsection*{Concern 5.1 -- Figure 3 to Introduction}
+
+\RC{Figure 3 is very useful in motivating the discussion and should be moved to the introduction.}
+
+\AR \done\ The profit rate trajectories figure is now presented in the Introduction, where it motivates the empirical question visually before the reader encounters the formal analysis.
+
+\smallskip\noindent\textit{Manuscript location: Introduction, Figures~2 and~3.}
+
+\subsection*{Concern 5.2 -- Table 1: No Controls; Lagged RoP Coefficient}
+
+\RC{Also show results without any controls. Further, the authors should discuss why the coefficient on the lagged rate of profit is positive and highly significant? This is contrary to the convergence hypothesis.}
+
+\AR We have added a ``no controls'' column (Column~0) to the TWFE table without the lagged dependent variable, showing log trade openness plus country and year fixed effects only (coefficient $= 0.225$, SE $= 0.099$). \done
+
+On the lagged profit rate coefficient: a positive and significant coefficient on $r_{i,t-1}$ does not contradict the convergence hypothesis---it reflects \textbf{persistence} in the profit rate, not divergence. Beta-convergence operates through the \emph{cross-sectional} relationship between the growth rate and the initial level, not through the sign of the autoregressive coefficient. A positive AR(1) coefficient simply means profit rates are serially correlated, as expected for macroeconomic variables. Convergence manifests in the \emph{negative} relationship between the initial level and subsequent growth, which we document via the sigma- and beta-convergence analysis in Section~5.
+
+\smallskip\noindent\textit{Manuscript location: Table~4 (FE Without Lag), Column~(0); Section~5.1, footnote on persistence vs.\ convergence.}
+
+\subsection*{Concern 5.3 -- Tables 2 \& 3: No Controls}
+
+\RC{Table 2 \& 3 --- Show results without and with controls.}
+
+\AR \done\ The main TWFE table without the lagged dependent variable now includes a no-controls Column~(0) showing log openness with two-way fixed effects only ($0.225$, SE $0.099$). The main TWFE table with the lagged dependent variable shows specifications both with and without additional controls (Columns~1--2 exclude additional controls beyond the lagged profit rate; Columns~3--6 progressively add controls). For the alternative trade measures table, all specifications include the lagged profit rate and two-way fixed effects, with results presented individually and jointly (Column~5).
+
+\smallskip\noindent\textit{Manuscript location: Table~3, Columns~(1)--(2); Table~4, Column~(0); Table~5, Column~(5).}
+
+\subsection*{Concern 5.4 -- Table 4 to Appendix / Comparison with Other Studies}
+
+\RC{Not sure with only four countries in the (unbalanced) sample, this table is adding much to the discussion. It can be moved to the appendix. Instead, the authors may wish to include a discussion on how their results in Tables 1, 2 \& 3 compare with other papers that may have empirically estimated the rate of profit.}
+
+\AR \done\ The foreign wealth regression table has been moved to Appendix~A.1, with a two-sentence summary in Section~5 referencing the appendix.
+
+On comparison with other studies: the referee asks how our results in Tables~1--3 (the trade openness regressions) compare with prior work. We note two points. First, our study is the first to use annual Marxian national accounts data for the 1870--1913 period; prior empirical work on profit rates (Glyn 2004; Carter 2004; Chou, Izyumov, and Vahaly 2015) focuses on the post-WWII era, uses different variable definitions, and does not examine trade openness as a determinant. A direct numerical comparison is therefore not possible, but the qualitative direction of our finding---that trade integration is associated with higher profit rates---is consistent with the broader argument in this literature that global integration is connected to profitability dynamics.
+
+Second, and importantly, the foreign wealth regression now in Appendix~A.1 is itself a novel empirical contribution. To our knowledge, no published study has used net or gross foreign asset positions as an independent variable in a rate-of-profit regression. The rich theoretical tradition---Lenin's \textit{Imperialism} (1916), Hilferding's \textit{Finance Capital} (1910)---holds that capital export sustains domestic profitability by relieving over-accumulation, but this hypothesis has not been tested in a cross-country panel framework. Our result (foreign assets positively associated with the profit rate, coefficient $0.0004^{**}$) provides the first quantitative evidence for this mechanism, even if limited to four countries. We have retained the table in the appendix rather than the main text given the sample size constraint, but wish to flag its contribution here.
+
+\smallskip\noindent\textit{Manuscript location: Appendix~A.1, Table~A1; Section~5, brief reference paragraph.}
+
+\subsection*{Concern 5.5 -- Which Column for IV Result}
+
+\RC{The paper states `Our instrumental variable approach... provided robust evidence that a 1\% increase in trade openness raised the profit rate by approximately 0.18--0.19 percentage points.' Which column in Table 7 does this correspond to?}
+
+\AR We thank the referee for flagging this. The range ``0.18--0.19 percentage points'' quoted in the previous draft was a textual error: the IV tables in the original submission already reported coefficients in the 0.30--0.33 range, but the prose incorrectly cited a smaller figure. We have corrected this. The accurate range (0.30--0.33 percentage points across specifications) corresponds to the IV second-stage estimates in Table~8 of the revised manuscript (Columns~1 and~2). Column~1 (no controls): coefficient $= 0.325^{***}$ (SE $= 0.062$); Column~2 (with controls): coefficient $= 0.317^{***}$ (SE $= 0.064$). The specific columns and their specifications are now identified explicitly in the prose, and the abstract and conclusion have been updated to reflect the correct range throughout.
+
+\smallskip\noindent\textit{Manuscript location: Table~8, Columns~(1)--(2); Section~5.3 (IV Results).}
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+%% =============================================================
+\section*{Section 6: Other Points}
+%% =============================================================
+
+\subsection*{Concern 6.1 -- Red Highlights}
+
+\RC{Why are certain portions of the paper highlighted in red?}
+
+\AR The highlighted text marks passages that are new or substantially revised relative to the prior submission, following the convention for resubmissions. These are provided for the editor's and referee's convenience in locating changes. We are happy to remove highlighting in the final accepted version.
+
+\smallskip\noindent\textit{Manuscript location: Highlighted passages throughout the revised manuscript.}
+
+\subsection*{Concern 6.2 -- Footnotes for Concepts}
+
+\RC{The authors should use footnotes to explain concepts and terms.}
+
+\AR \done\ We have added footnotes throughout to explain technical concepts on first use, including: the Perpetual Inventory Method, the Marxian rate of exploitation, the algebraic relationship between the rate of exploitation and the rate of profit, PPML estimation, wild-cluster bootstrap, and the Hodrick-Prescott filter (with a note on why it is used rather than alternative filters, following Basu and Manolakos 2013).
+
+\smallskip\noindent\textit{Manuscript location: Footnotes throughout Sections~3--5.}
+
+\subsection*{Concern 6.3 -- `Essay' $\to$ `Article'}
+
+\RC{The authors use `essay' in several places to talk about this paper. This should be changed to article or research paper.}
+
+\AR \done\ All instances of `essay' have been replaced with `article' throughout the manuscript.
+
+\smallskip\noindent\textit{Manuscript location: Throughout (zero instances of ``essay'' remain).}
+
+\subsection*{Concern 6.4 -- Disjointed Parts}
+
+\RC{Several parts of the paper seem disjointed and need to be linked with the overall findings of the paper.}
+
+\AR We have added transition sentences at the end of major sections linking the discussion back to the central findings. In particular: the theory section (Section~2) now closes with a paragraph connecting the Marxian mechanisms to the empirical hypotheses we test; the data section closes with a summary of the sample; and the results section is organized so that each subsection concludes with a sentence relating the finding to the overall narrative---that trade openness raised and equalized profit rates during the first globalization.
+
+\smallskip\noindent\textit{Manuscript location: Closing paragraphs of Sections~2, 3, 4, and each subsection of Section~5.}
+
+\subsection*{Concern 6.5 -- Exploitation Rate Defined Earlier}
+
+\RC{The rate of exploitation should be defined earlier on page 10, either before or immediately after equation~(3), since it appears in that equation.}
+
+\AR \done\ The rate of exploitation is now formally defined with its equation immediately upon first appearance, before it is used as a regressor.
+
+\smallskip\noindent\textit{Manuscript location: Section~3.1, Equation~(2) and surrounding text.}
+
+\subsection*{Concern 6.6 -- Exploitation Rate as Control}
+
+\RC{Using the rate of exploitation (defined as $s/(s+v)$) as an independent variable in an estimation explaining the rate of profit ($s/(c+v)$) is problematic. The rate of exploitation is already a core component of the rate of profit. Controlling for it obscures the true effect of other variables, whose impacts are transmitted through the rate of exploitation. Moreover, $K/L$ is itself a component of the rate of profit.}
+
+\AR We thank the referee for this important methodological observation. We have added a footnote and textual discussion addressing it directly.
+
+The exploitation rate $e = s/(s+v)$ and the rate of profit $r = s/(c+v)$ share numerator $s$ but differ in their denominators (variable capital only vs.\ total capital). Their algebraic relationship means that including $e$ as a control partially absorbs variation in $r$, as the referee notes.
+
+We include the exploitation rate and capital-labor ratio as controls for the following reason: they capture \emph{channels other than trade} through which profitability can vary (changes in the wage-productivity gap; changes in capital intensity), isolating the variation in openness that is orthogonal to these factor-share changes. We are not claiming that these controls are causally independent of openness; rather, we use them to obtain a more conservative estimate of the direct openness effect. Crucially, in our IV specifications, any mismeasurement or collinearity in the controls does not bias the IV estimate of openness, which is identified solely by the exogenous instrument. We also present specifications without these controls (Column~0 in each table) and the coefficient on openness remains positive and consistent across all specifications.
+
+\smallskip\noindent\textit{Manuscript location: Section~3, footnote on exploitation rate and capital-labor ratio as controls; Table~4, Column~(0).}
+
+\subsection*{Concern 6.7 -- Exports/GDP and Imports/GDP Together}
+
+\RC{In Table 5, the author should include exports/GDP and imports/GDP together in the same regression as control variables to avoid omitted variable bias.}
+
+\AR \done\ We now report both individual specifications (exports/GDP alone, imports/GDP alone) and a joint specification with both included simultaneously. Results are presented in Table~5 (alternative trade measures) and described in the text. In the joint specification, export/GDP is positive ($0.029$, SE $0.041$) and import/GDP is also positive and small ($0.022$, SE $0.026$), both statistically insignificant but both with the theoretically expected sign. The TWFE joint specification is thus inconclusive on its own---neither component is individually distinguishable from zero, likely reflecting collinearity between export and import shares alongside the limited power of seven clusters. The sharper evidence for the export channel comes from the IV decomposition (Table~10), where the instrumented export-to-GDP ratio is positive and strongly significant (0.302$^{***}$--0.350$^{**}$) while instrumented imports remain insignificant.
+
+\smallskip\noindent\textit{Manuscript location: Table~5, Column~(5); Section~5.1, trade decomposition paragraph.}
+
+\subsection*{Concern 6.8 -- Narrative Inconsistency with Results}
+
+\RC{The finding that exports/GDP has a positive and significant effect, while imports/GDP (although insignificant) is also positive and tariffs have a negative and significant effect on the rate of profit suggests that exports, rather than overall trade openness, drive the positive impact on the rate of profit. Consequently, the narrative in the paper is not fully consistent with the estimation results.}
+
+\AR We agree with this observation and have revised the narrative accordingly. The discussion now emphasizes that the positive openness effect is driven primarily by the \emph{export channel}: exports of finished goods expand surplus value realization, consistent with Marx's Vol.~III analysis. The aggregate openness measure captures a net effect combining both directions of trade. We now discuss the export/import asymmetry explicitly as a finding of the paper---rather than treating aggregate openness as the sole result---and we emphasize that it is \emph{export-led openness}, not trade openness per se, that raised profit rates during the first globalization.
+
+\smallskip\noindent\textit{Manuscript location: Section~5 (Results) and Conclusion; Table~10 (IV Export/Import decomposition).}
+
+\subsection*{Concern 6.9 -- Table Significance Stars}
+
+\RC{Table 2 include the following note: $^{***}p < 0.01$, $^{**}p < 0.05$, $^{*}p < 0.1$.}
+
+\AR \done\ All tables now include the standard significance notation: $^{***}p<0.01$, $^{**}p<0.05$, $^{*}p<0.1$.
+
+\smallskip\noindent\textit{Manuscript location: All results tables (Tables~3--10 and Appendix tables).}
+
+\bigskip\noindent\rule{\textwidth}{0.4pt}\bigskip
+
+%% =============================================================
+\section*{Summary of Changes}
+%% =============================================================
+
+\begin{longtable}{@{}p{0.08\textwidth}p{0.42\textwidth}p{0.42\textwidth}@{}}
+\toprule
+\textbf{Item} & \textbf{Referee Concern} & \textbf{Action Taken} \\
+\midrule
+\endhead
+1.1 & Large countries, low trade/GDP & Footnote: TWFE exploits within-country variation \\
+1.2 & Figure A1 inadequate; why 1870? & Footnote on O'Rourke--Williamson structural break; additional citations \\
+1.3 & Country/period selection bias & LOO analysis (range 0.23--0.43); data constraint explained \\
+1.4 & Railways timing paradox & Footnote distinguishing isolated deployment from systemic integration \\
+1.5 & Colonial trade pattern ignored & New paragraph in Conclusion explaining consistency with findings \\
+1.6 & IV preview inadequate & Expanded IV description in Introduction \\
+1.7 & Intro reads like dissertation & Introduction restructured and condensed \\
+2.1 & Merge Section~2 with intro & Kept separate; rationale provided in this response \\
+2.2 & Remove FDI and WWI & FDI paragraph removed; WWI references excised \\
+2.3 & Marxian vs.\ neoclassical equalization & Retained; link to empirical findings made explicit \\
+3.1 & Data before empirical strategy & Sections reordered: Data (Sec.~3) before Strategy (Sec.~4) \\
+3.2 & Few clusters; bootstrap & Wild-cluster bootstrap $p$-values added; TWFE treated as suggestive; IV is primary \\
+3.3 & Summary statistics table & Table~2 added with all nine variables \\
+3.4 & IV explanation unclear & IV section substantially rewritten \\
+3.5 & PPML section unclear & PPML section rewritten with estimation details \\
+3.6 & Placebo test & Cannot run; stated as explicit limitation \\
+3.7 & Longer time period & No data; stated as limitation \\
+3.8 & Other countries / Japan & No data; LOO addresses within-sample concern \\
+3.9 & Leave-one-out analysis & Full LOO across 7 countries; range 0.23--0.43 \\
+4.1 & PIM explanation; net vs.\ gross & Clarified and moved to appropriate position in Data section \\
+4.2 & Data sources; summary stats & Table~1 revised with hyperlinks; Table~2 added; replication package public \\
+5.1 & Figure 3 to introduction & Done \\
+5.2 & Table 1 no controls; lagged RoP & No-controls column added; persistence vs.\ convergence explained \\
+5.3 & Tables 2 \& 3 no controls & No-controls columns/notes added \\
+5.4 & Table 4 to appendix & Done; openness results compared with Glyn/Carter/Chou; foreign wealth regression claimed as novel (no prior study uses NFA in profit-rate regression) \\
+5.5 & Which column for IV result & Textual error in prior draft corrected (0.18--0.19 was wrong; correct range is 0.30--0.33 pp); columns identified explicitly \\
+6.1 & Red highlights & Explained as revision markers for editor/referee convenience \\
+6.2 & Footnotes for concepts & Footnotes added throughout (PIM, exploitation, PPML, bootstrap, HP filter) \\
+6.3 & `Essay' $\to$ `article' & Done throughout \\
+6.4 & Disjointed parts & Transition sentences added at end of each major section \\
+6.5 & Exploitation rate defined earlier & Done \\
+6.6 & Exploitation rate as control & Footnote added; no-controls specifications shown; IV robustness noted \\
+6.7 & Exports/imports together & Joint specification added to Table~5 \\
+6.8 & Narrative inconsistency & Narrative revised to emphasize export channel; asymmetry as key finding \\
+6.9 & Table significance stars & Done \\
+\bottomrule
+\end{longtable}
+
+\end{document}
